@@ -1,18 +1,48 @@
+/* Import Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Overpass:wght@400;500;600;700&display=swap');
+
 /* CSS Custom Properties / Design Tokens */
 :root {
-  /* Color Palette */
-  --color-primary: #1FC5B5;
-  --color-primary-dark: #1a9e91;
+  /* Color Palette - Primary */
+  --color-primary: #FF9F40;
+  --color-primary-dark: #E68A2E;
+  --color-primary-light: #FFB366;
+  
+  /* Color Palette - Background & Surfaces */
   --color-background: #FFFAF6;
   --color-surface: #F5F0EB;
-  --color-text: #1a1a1a;
+  --color-dark-bg: #1A1A1A;
+  --color-dark-surface: #2A2A2A;
+  
+  /* Color Palette - Text */
+  --color-text: #1A1A1A;
   --color-text-light: #666666;
+  --color-text-dark: #FFFFFF;
   --color-border: #EEEBE5;
+  --color-border-dark: #3A3A3A;
 
-  /* Typography */
-  --font-family: 'Overpass', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  /* Typography - Font Families */
+  --font-family-heading: 'Syne', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-family-body: 'Overpass', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-family: var(--font-family-body);
+  
+  /* Typography - Sizes */
   --font-size-base: 16px;
+  --font-size-sm: 14px;
+  --font-size-md: 16px;
+  --font-size-lg: 18px;
+  --font-size-xl: 24px;
+  --font-size-2xl: 32px;
+  --font-size-3xl: 40px;
+  --font-size-4xl: 48px;
+  --font-size-5xl: 56px;
+  --font-size-6xl: 64px;
+  --font-size-7xl: 72px;
+  
+  /* Typography - Line Heights */
+  --line-height-tight: 1.2;
   --line-height-base: 1.6;
+  --line-height-relaxed: 1.8;
 
   /* Spacing (8px grid) */
   --space-xs: 0.5rem;
@@ -21,6 +51,13 @@
   --space-lg: 2rem;
   --space-xl: 3rem;
   --space-2xl: 4rem;
+  --space-3xl: 5rem;
+  --space-4xl: 6rem;
+  
+  /* Borders & Shadows */
+  --border-width: 2px;
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
 }
 
 /* Global Styles */
@@ -33,7 +70,7 @@
 html,
 body {
   height: 100%;
-  font-family: var(--font-family);
+  font-family: var(--font-family-body);
   font-size: var(--font-size-base);
   line-height: var(--line-height-base);
   color: var(--color-text);
@@ -51,46 +88,62 @@ app-root {
   min-height: 100vh;
 }
 
-/* Typography */
+/* Typography - Headings */
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
+  font-family: var(--font-family-heading);
   font-weight: 700;
-  line-height: 1.2;
-  margin-bottom: 1rem;
+  line-height: var(--line-height-tight);
+  margin: 0 0 1rem 0;
+  color: var(--color-text);
 }
 
 h1 {
-  font-size: 3rem;
+  font-size: var(--font-size-7xl);
+  letter-spacing: -0.02em;
+  font-weight: 800;
 }
 
 h2 {
-  font-size: 2.5rem;
+  font-size: var(--font-size-5xl);
+  letter-spacing: -0.015em;
+  font-weight: 800;
 }
 
 h3 {
-  font-size: 1.75rem;
+  font-size: var(--font-size-4xl);
+  font-weight: 700;
 }
 
 h4 {
-  font-size: 1.5rem;
+  font-size: var(--font-size-3xl);
+  font-weight: 700;
 }
 
 h5 {
-  font-size: 1.25rem;
+  font-size: var(--font-size-xl);
+  font-weight: 600;
 }
 
 h6 {
-  font-size: 1rem;
+  font-size: var(--font-size-lg);
+  font-weight: 600;
 }
 
+/* Typography - Body */
 p {
-  margin-bottom: 1rem;
+  margin: 0 0 1rem 0;
+  line-height: var(--line-height-base);
+  color: var(--color-text);
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-md);
 }
 
+/* Links */
 a {
   color: var(--color-primary);
   text-decoration: none;
@@ -110,17 +163,39 @@ select {
 }
 
 /* Responsive Typography */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   h1 {
-    font-size: 2.5rem;
+    font-size: calc(var(--font-size-7xl) * 0.85);
   }
 
   h2 {
-    font-size: 2rem;
+    font-size: calc(var(--font-size-5xl) * 0.9);
   }
 
   h3 {
-    font-size: 1.5rem;
+    font-size: calc(var(--font-size-4xl) * 0.9);
+  }
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: var(--font-size-4xl);
+  }
+
+  h2 {
+    font-size: var(--font-size-3xl);
+  }
+
+  h3 {
+    font-size: var(--font-size-2xl);
+  }
+
+  h4 {
+    font-size: var(--font-size-xl);
+  }
+
+  p {
+    font-size: var(--font-size-sm);
   }
 }
 
@@ -131,10 +206,68 @@ select {
   padding: 0 2rem;
 }
 
+.container-fluid {
+  width: 100%;
+  padding: 0 2rem;
+}
+
 /* Accessibility */
 @media (prefers-reduced-motion: reduce) {
   * {
     animation: none !important;
     transition: none !important;
+  }
+}
+
+/* Dark Section Utilities */
+.dark-section {
+  background-color: var(--color-dark-bg);
+  color: var(--color-text-dark);
+}
+
+.dark-section h1,
+.dark-section h2,
+.dark-section h3,
+.dark-section h4,
+.dark-section h5,
+.dark-section h6 {
+  color: var(--color-text-dark);
+}
+
+.dark-section p {
+  color: var(--color-text-dark);
+}
+
+.dark-section a {
+  color: var(--color-primary);
+}
+
+/* Accent Color Highlights */
+.accent-primary {
+  color: var(--color-primary);
+}
+
+.accent-highlight {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+/* Borders */
+.border-frame {
+  border: var(--border-width) solid var(--color-text);
+}
+
+.border-frame-light {
+  border: var(--border-width) solid var(--color-border);
+}
+
+/* Section Spacing */
+.section-spacing {
+  padding: var(--space-4xl) var(--space-lg);
+}
+
+@media (max-width: 768px) {
+  .section-spacing {
+    padding: var(--space-2xl) var(--space-md);
   }
 }

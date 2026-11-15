@@ -1,216 +1,321 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LanguageService } from '../../services/language.service';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, ReactiveFormsModule],
   template: `
-    <section class="contact">
+    <section class="contact dark-section">
       <div class="contact-container">
-        <h2>{{ translate('contact.title') }}</h2>
-        
-        <div class="contact-info">
-          <p class="info-placeholder">[Contact information to be added]</p>
+        <div class="contact-header">
+          <h2 class="contact-title">{{ translate('contact.title') }}</h2>
+          <p class="contact-subtitle">
+            {{ translate('contact.subtitle') }}
+          </p>
         </div>
 
-        <form class="contact-form" (ngSubmit)="onSubmit()">
+        <form class="contact-form" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
           <div class="form-group">
-            <label for="name">Name</label>
             <input 
-              id="name" 
               type="text" 
-              [(ngModel)]="formData.name" 
-              name="name"
-              required
+              placeholder="Your name"
+              formControlName="name"
+              class="form-input"
+              (blur)="markAsTouched('name')"
             />
+            <div *ngIf="contactForm.get('name')?.invalid && contactForm.get('name')?.touched" class="error-state">
+              {{ translate('contact.error.name') }}
+            </div>
           </div>
 
           <div class="form-group">
-            <label for="email">Email</label>
             <input 
-              id="email" 
               type="email" 
-              [(ngModel)]="formData.email" 
-              name="email"
-              required
+              placeholder="Your email"
+              formControlName="email"
+              class="form-input"
+              (blur)="markAsTouched('email')"
             />
+            <div *ngIf="contactForm.get('email')?.invalid && contactForm.get('email')?.touched" class="error-state">
+              {{ translate('contact.error.email') }}
+            </div>
           </div>
 
           <div class="form-group">
-            <label for="message">Message</label>
             <textarea 
-              id="message" 
-              [(ngModel)]="formData.message" 
-              name="message"
-              required
+              placeholder="Your message"
+              formControlName="message"
+              class="form-input form-textarea"
+              (blur)="markAsTouched('message')"
             ></textarea>
+            <div *ngIf="contactForm.get('message')?.invalid && contactForm.get('message')?.touched" class="error-state">
+              {{ translate('contact.error.message') }}
+            </div>
           </div>
 
-          <div class="form-group checkbox">
+          <div class="form-group checkbox-group">
             <input 
-              id="gdpr" 
               type="checkbox" 
-              [(ngModel)]="formData.gdprConsent" 
-              name="gdprConsent"
-              required
+              id="privacy"
+              formControlName="privacyConsent"
+              (blur)="markAsTouched('privacyConsent')"
             />
-            <label for="gdpr">I agree to the privacy policy</label>
+            <label for="privacy">
+              {{ translate('contact.privacy.accept') }}
+              <a href="/privacy" target="_blank" rel="noopener noreferrer" class="privacy-link">
+                {{ translate('contact.privacy.policy') }}
+              </a>
+            </label>
           </div>
 
-          <button type="submit" [disabled]="!isFormValid()">Send</button>
+          <button 
+            type="submit" 
+            class="contact-button"
+            [disabled]="!contactForm.valid || submitButtonText === 'Sending...'"
+          >
+            {{ submitButtonText }}
+          </button>
+
+          <div *ngIf="submitSuccess" class="success-message">
+            {{ translate('contact.success') }}
+          </div>
         </form>
       </div>
     </section>
   `,
   styles: [`
     .contact {
-      padding: 4rem 2rem;
-      background-color: var(--color-surface);
+      background-color: var(--color-dark-bg);
+      color: var(--color-text-dark);
+      padding: var(--space-4xl) var(--space-lg);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .contact-container {
       max-width: 600px;
-      margin: 0 auto;
+      width: 100%;
     }
 
-    h2 {
-      font-size: 2.5rem;
-      margin-bottom: 2rem;
+    .contact-header {
+      margin-bottom: var(--space-3xl);
       text-align: center;
-      color: var(--color-text);
     }
 
-    .contact-info {
-      text-align: center;
-      margin-bottom: 2rem;
+    .contact-title {
+      font-family: var(--font-family-heading);
+      font-size: var(--font-size-5xl);
+      font-weight: 800;
+      color: var(--color-text-dark);
+      margin: 0 0 var(--space-md) 0;
+      letter-spacing: -0.02em;
     }
 
-    .info-placeholder {
-      font-style: italic;
-      color: var(--color-text-light);
+    .contact-subtitle {
+      font-family: var(--font-family-body);
+      font-size: var(--font-size-lg);
+      color: var(--color-primary);
+      margin: 0;
+      line-height: var(--line-height-relaxed);
     }
 
     .contact-form {
       display: flex;
       flex-direction: column;
-      gap: 1.5rem;
+      gap: var(--space-lg);
     }
 
     .form-group {
       display: flex;
       flex-direction: column;
+      gap: var(--space-sm);
     }
 
-    .form-group.checkbox {
-      flex-direction: row;
-      align-items: center;
-      gap: 0.5rem;
+    .form-input {
+      background-color: transparent;
+      border: none;
+      border-bottom: var(--border-width) solid var(--color-text-dark);
+      padding: var(--space-sm) 0;
+      font-family: var(--font-family-body);
+      font-size: var(--font-size-md);
+      color: var(--color-text-dark);
+      transition: all 0.3s ease;
     }
 
-    label {
-      color: var(--color-text);
-      font-weight: 500;
-      margin-bottom: 0.5rem;
+    .form-input::placeholder {
+      color: rgba(255, 255, 255, 0.5);
     }
 
-    .form-group.checkbox label {
-      margin-bottom: 0;
-    }
-
-    input[type="text"],
-    input[type="email"],
-    textarea {
-      padding: 0.75rem;
-      border: 1px solid var(--color-border);
-      border-radius: 4px;
-      font-size: 1rem;
-      color: var(--color-text);
-      background-color: var(--color-background);
-    }
-
-    input[type="text"]:focus,
-    input[type="email"]:focus,
-    textarea:focus {
+    .form-input:focus {
       outline: none;
-      border-color: var(--color-primary);
-      box-shadow: 0 0 0 3px rgba(31, 197, 181, 0.1);
+      border-bottom-color: var(--color-primary);
+      box-shadow: 0 2px 0 0 var(--color-primary);
     }
 
-    textarea {
+    .form-textarea {
       resize: vertical;
       min-height: 120px;
-      font-family: inherit;
+      border: var(--border-width) solid var(--color-text-dark);
+      padding: var(--space-md);
+      border-radius: 0;
     }
 
-    input[type="checkbox"] {
-      width: 18px;
-      height: 18px;
+    .form-textarea:focus {
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px rgba(255, 159, 64, 0.2);
+    }
+
+    .error-state {
+      font-family: var(--font-family-body);
+      font-size: var(--font-size-sm);
+      color: #FF6B6B;
+      margin-top: -var(--space-sm);
+    }
+
+    .checkbox-group {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      gap: var(--space-md);
+      margin-top: var(--space-md);
+    }
+
+    .checkbox-group input {
+      width: 20px;
+      height: 20px;
       cursor: pointer;
+      margin-top: 2px;
+      flex-shrink: 0;
     }
 
-    button {
-      background-color: var(--color-primary);
-      color: var(--color-background);
-      padding: 0.75rem 1.5rem;
-      border: none;
-      border-radius: 4px;
-      font-size: 1rem;
+    .checkbox-group label {
+      font-family: var(--font-family-body);
+      font-size: var(--font-size-sm);
+      color: var(--color-text-dark);
+      cursor: pointer;
+      line-height: var(--line-height-relaxed);
+    }
+
+    .privacy-link {
+      color: var(--color-primary);
+      text-decoration: underline;
+      transition: color 0.3s ease;
+    }
+
+    .privacy-link:hover {
+      color: var(--color-primary-light);
+    }
+
+    .contact-button {
+      background-color: transparent;
+      border: var(--border-width) solid var(--color-text-dark);
+      color: var(--color-text-dark);
+      padding: var(--space-md) var(--space-lg);
+      font-family: var(--font-family-body);
+      font-size: var(--font-size-md);
       font-weight: 600;
       cursor: pointer;
-      transition: background-color 0.3s ease;
+      transition: all 0.3s ease;
+      margin-top: var(--space-md);
     }
 
-    button:hover:not(:disabled) {
-      background-color: var(--color-primary-dark);
+    .contact-button:hover:not(:disabled) {
+      background-color: var(--color-primary);
+      border-color: var(--color-primary);
+      color: var(--color-dark-bg);
     }
 
-    button:disabled {
-      background-color: var(--color-border);
+    .contact-button:disabled {
+      opacity: 0.5;
       cursor: not-allowed;
-      opacity: 0.6;
+    }
+
+    .success-message {
+      background-color: rgba(76, 175, 80, 0.2);
+      border: var(--border-width) solid #4CAF50;
+      color: #4CAF50;
+      padding: var(--space-md);
+      border-radius: var(--border-radius-sm);
+      font-family: var(--font-family-body);
+      font-size: var(--font-size-sm);
+      margin-top: var(--space-md);
+      text-align: center;
     }
 
     @media (max-width: 768px) {
-      h2 {
-        font-size: 2rem;
+      .contact {
+        padding: var(--space-2xl) var(--space-md);
+      }
+
+      .contact-title {
+        font-size: var(--font-size-3xl);
+      }
+
+      .contact-subtitle {
+        font-size: var(--font-size-md);
+      }
+
+      .form-input {
+        font-size: var(--font-size-sm);
+      }
+
+      .checkbox-group {
+        gap: var(--space-sm);
       }
     }
   `]
 })
 export class ContactComponent {
-  formData = {
-    name: '',
-    email: '',
-    message: '',
-    gdprConsent: false
-  };
+  submitButtonText = 'Send message';
+  submitSuccess = false;
+  contactForm: FormGroup;
 
-  constructor(private languageService: LanguageService) {}
+  constructor(
+    private fb: FormBuilder,
+    private languageService: LanguageService
+  ) {
+    this.contactForm = this.fb.group({
+      name: ['', [Validators.required, Validators.minLength(2)]],
+      email: ['', [Validators.required, Validators.email]],
+      message: ['', [Validators.required, Validators.minLength(10)]],
+      privacyConsent: [false, Validators.requiredTrue]
+    });
+
+    this.languageService.currentLanguage$.subscribe(() => {
+      this.submitButtonText = this.translate('contact.button');
+    });
+  }
 
   translate(key: string): string {
     return this.languageService.translate(key);
   }
 
-  isFormValid(): boolean {
-    return this.formData.name.trim() !== '' &&
-           this.formData.email.trim() !== '' &&
-           this.formData.message.trim() !== '' &&
-           this.formData.gdprConsent;
+  markAsTouched(fieldName: string): void {
+    const field = this.contactForm.get(fieldName);
+    if (field) {
+      field.markAsTouched();
+    }
   }
 
   onSubmit(): void {
-    if (this.isFormValid()) {
-      console.log('Form submitted:', this.formData);
-      // Reset form
-      this.formData = {
-        name: '',
-        email: '',
-        message: '',
-        gdprConsent: false
-      };
+    if (this.contactForm.valid) {
+      this.submitButtonText = 'Sending...';
+      console.log('Form submitted:', this.contactForm.value);
+      
+      setTimeout(() => {
+        this.submitSuccess = true;
+        this.contactForm.reset();
+        this.submitButtonText = this.translate('contact.button');
+        
+        setTimeout(() => {
+          this.submitSuccess = false;
+        }, 5000);
+      }, 500);
     }
   }
 }

@@ -1,81 +1,153 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
 import { LanguageService } from '../../services/language.service';
+import { ScrollService } from '../../services/scroll.service';
 
 @Component({
   selector: 'app-footer',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule],
   template: `
-    <footer class="footer">
+    <footer class="footer dark-section">
       <div class="footer-container">
-        <div class="footer-content">
-          <p>{{ translate('footer.copyright') }}</p>
+        <div class="footer-top">
+          <p class="footer-logo">NR</p>
+          <p class="footer-copyright">{{ translate('footer.copyright') }}</p>
         </div>
         
         <div class="footer-links">
-          <a routerLink="/privacy">Privacy Policy</a>
-          <a href="https://github.com/naiba19" target="_blank" rel="noopener noreferrer">
+          <button (click)="scrollToContact()" class="footer-link">{{ translate('footer.legal') }}</button>
+          <a href="https://github.com/naiba19" target="_blank" rel="noopener noreferrer" class="footer-link">
             GitHub
           </a>
+          <a href="mailto:naiba.radshabov@outlook.de" class="footer-link">
+            Email
+          </a>
         </div>
+
+        <button (click)="scrollToTop()" class="back-to-top" [attr.aria-label]="'Back to top'">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="18 15 12 9 6 15"></polyline>
+          </svg>
+        </button>
       </div>
     </footer>
   `,
   styles: [`
     .footer {
-      background-color: var(--color-text);
-      color: var(--color-background);
-      padding: 2rem;
-      margin-top: 4rem;
+      background-color: var(--color-dark-bg);
+      color: var(--color-text-dark);
+      padding: var(--space-3xl) var(--space-lg);
+      border-top: var(--border-width) solid var(--color-border-dark);
     }
 
     .footer-container {
       max-width: 1200px;
       margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr 60px;
+      gap: var(--space-2xl);
+      align-items: start;
     }
 
-    .footer-content p {
+    .footer-top {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+
+    .footer-logo {
+      font-family: var(--font-family-heading);
+      font-size: var(--font-size-2xl);
+      font-weight: 800;
+      color: var(--color-text-dark);
+      margin: 0;
+      letter-spacing: -0.05em;
+    }
+
+    .footer-copyright {
+      font-family: var(--font-family-body);
+      font-size: var(--font-size-sm);
+      color: rgba(255, 255, 255, 0.7);
       margin: 0;
     }
 
     .footer-links {
       display: flex;
-      gap: 2rem;
+      flex-direction: column;
+      gap: var(--space-md);
     }
 
-    .footer-links a {
-      color: var(--color-background);
+    .footer-link {
+      font-family: var(--font-family-body);
+      font-size: var(--font-size-sm);
+      color: var(--color-text-dark);
       text-decoration: none;
-      transition: opacity 0.3s ease;
+      transition: color 0.3s ease;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      text-align: left;
     }
 
-    .footer-links a:hover {
-      opacity: 0.8;
+    .footer-link:hover {
+      color: var(--color-primary);
+    }
+
+    .back-to-top {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 60px;
+      height: 60px;
+      border: var(--border-width) solid var(--color-text-dark);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      color: var(--color-text-dark);
+      background: none;
+      padding: 0;
+    }
+
+    .back-to-top:hover {
+      background-color: var(--color-primary);
+      border-color: var(--color-primary);
+      color: var(--color-dark-bg);
+    }
+
+    .back-to-top svg {
+      width: 24px;
+      height: 24px;
     }
 
     @media (max-width: 768px) {
       .footer-container {
-        flex-direction: column;
-        text-align: center;
+        grid-template-columns: 1fr;
+        gap: var(--space-lg);
       }
 
-      .footer-links {
-        justify-content: center;
+      .back-to-top {
+        width: 50px;
+        height: 50px;
       }
     }
   `]
 })
 export class FooterComponent {
-  constructor(private languageService: LanguageService) {}
+  constructor(
+    private languageService: LanguageService,
+    private scrollService: ScrollService
+  ) {}
 
   translate(key: string): string {
     return this.languageService.translate(key);
+  }
+
+  scrollToTop(): void {
+    this.scrollService.scrollToTop();
+  }
+
+  scrollToContact(): void {
+    this.scrollService.scrollToSection('contact');
   }
 }
