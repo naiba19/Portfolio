@@ -8,40 +8,36 @@ import { ScrollService } from '../../services/scroll.service';
   standalone: true,
   imports: [CommonModule],
   template: `
-    <section class="hero">
-      <div class="hero-container">
-        <div class="hero-content">
-          <div class="hero-text-wrapper">
-            <div class="hero-heading-section">
-              <h1 class="hero-heading">
-                {{ translate('hero.title') }}
-              </h1>
-            </div>
-            
-            <div class="hero-divider-section">
-              <div class="hero-divider-line"></div>
-              <p class="hero-name">
-                {{ translate('hero.name') }}
-              </p>
-            </div>
-          </div>
+    <section class="hero" id="home">
+      <div class="hero-email-left">
+        <span class="email-text">naiba.radshabov<br>@outlook.de</span>
+      </div>
 
-          <button class="scroll-indicator" (click)="scrollToAbout()" [attr.aria-label]="'Scroll to About section'">
-            <p class="scroll-text">{{ translate('hero.scroll') }}</p>
-            <svg class="scroll-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polyline points="6 9 12 15 18 9"></polyline>
-            </svg>
-          </button>
+      <div class="hero-center">
+        <div class="hero-heading-wrapper">
+          <h1 class="hero-heading">{{ translate('hero.title') }}</h1>
         </div>
 
-        <div class="hero-sidebar">
-          <p class="email-vertical">naiba.radshabov<br />@outlook.de</p>
+        <div class="hero-name-section">
+          <div class="hero-divider"></div>
+          <span class="hero-name">{{ translate('hero.name') }}</span>
         </div>
 
-        <div class="hero-decoration">
-          <svg class="decoration-arrow" width="100" height="100" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2">
-            <polyline points="20 20 80 20 80 80"></polyline>
+        <button class="hero-scroll-btn" (click)="scrollToAbout()" [attr.aria-label]="'Scroll to About section'">
+          <span class="scroll-label">{{ translate('hero.scroll') }}</span>
+          <svg class="scroll-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6 9 12 15 18 9"></polyline>
           </svg>
+        </button>
+      </div>
+
+      <div class="hero-arrow-right">
+        <div class="scroll-down-box">
+          <svg class="down-arrow" width="116" height="180" viewBox="0 0 116 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M33 145.105L58 170.105L83 145.105" stroke-width="4" stroke="currentColor"/>
+            <path d="M58 78V170.105" stroke-width="4" stroke="currentColor"/>
+          </svg>
+          <p class="scroll-text">Scroll<br>Down</p>
         </div>
       </div>
     </section>
@@ -49,137 +45,159 @@ import { ScrollService } from '../../services/scroll.service';
   styles: [`
     .hero {
       min-height: 100vh;
+      display: grid;
+      grid-template-columns: minmax(80px, auto) 1fr minmax(80px, auto);
+      gap: var(--space-3xl);
+      align-items: center;
+      justify-items: start;
+      background-color: var(--color-background);
+      padding: var(--space-2xl) var(--space-4xl);
+      position: relative;
+      overflow: visible;
+    }
+
+    .hero-email-left {
       display: flex;
       align-items: center;
       justify-content: center;
-      background-color: var(--color-background);
-      padding: var(--space-2xl) var(--space-lg);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-container {
-      max-width: 1200px;
-      width: 100%;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: var(--space-4xl);
-      align-items: center;
-      position: relative;
-    }
-
-    .hero-content {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      height: 100%;
       min-height: 500px;
+      width: 100%;
+      justify-self: start;
     }
 
-    .hero-text-wrapper {
+    .email-text {
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      transform: rotate(180deg);
+      font-family: var(--font-family-body);
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--color-text);
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    .hero-center {
       display: flex;
       flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
       gap: var(--space-2xl);
+      flex: 1;
+      text-align: left;
+      max-width: 1000px;
     }
 
-    .hero-heading-section {
-      display: flex;
-      flex-direction: column;
+    .hero-heading-wrapper {
+      width: 100%;
+      max-width: 650px;
     }
 
     .hero-heading {
       font-family: var(--font-family-heading);
-      font-size: clamp(3rem, 8vw, 4.5rem);
+      font-size: clamp(4rem, 12vw, 7.5rem);
       font-weight: 800;
-      line-height: var(--line-height-tight);
+      line-height: 1.1;
+      letter-spacing: -0.03em;
       color: var(--color-text);
-      letter-spacing: -0.02em;
       margin: 0;
+      max-width: 1000px;
+      word-break: break-word;
     }
 
-    .hero-divider-section {
+    .hero-name-section {
       display: flex;
       align-items: center;
-      gap: var(--space-lg);
+      gap: var(--space-xl);
+      margin-top: var(--space-sm);
     }
 
-    .hero-divider-line {
-      flex: 1;
-      height: 2px;
+    .hero-divider {
+      width: 240px;
+      height: 1px;
       background-color: var(--color-text);
-      max-width: 200px;
+      flex-shrink: 0;
     }
 
     .hero-name {
       font-family: var(--font-family-heading);
-      font-size: clamp(2.5rem, 7vw, 4rem);
+      font-size: clamp(2rem, 6vw, 3.5rem);
       font-weight: 800;
-      line-height: var(--line-height-tight);
       color: var(--color-primary);
-      letter-spacing: -0.02em;
-      margin: 0;
       white-space: nowrap;
+      letter-spacing: -0.02em;
     }
 
-    .scroll-indicator {
+    .hero-scroll-btn {
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: var(--space-sm);
-      background: none;
+      background: transparent;
       border: none;
       cursor: pointer;
       padding: 0;
+      margin-top: var(--space-2xl);
       transition: transform 0.3s ease;
     }
 
-    .scroll-indicator:hover {
+    .hero-scroll-btn:hover {
       transform: translateY(5px);
     }
 
-    .scroll-text {
+    .scroll-label {
       font-family: var(--font-family-body);
       font-size: var(--font-size-sm);
       font-weight: 500;
       color: var(--color-text);
-      margin: 0;
     }
 
-    .scroll-arrow {
+    .scroll-arrow-icon {
       color: var(--color-primary);
       width: 24px;
       height: 24px;
       animation: scroll-bounce 2s infinite;
     }
 
-    .hero-sidebar {
+    .hero-arrow-right {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       height: 100%;
+      min-height: 500px;
+      width: 100%;
+      justify-self: end;
     }
 
-    .email-vertical {
-      writing-mode: vertical-rl;
-      text-orientation: mixed;
+    .scroll-down-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-md);
+      text-align: center;
+    }
+
+    .down-arrow {
+      width: 100%;
+      max-width: 80px;
+      height: auto;
+      color: var(--color-text);
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .scroll-text {
       font-family: var(--font-family-body);
       font-size: var(--font-size-sm);
+      font-weight: 400;
       color: var(--color-text);
-      transform: rotate(180deg);
-      letter-spacing: 0.1em;
+      line-height: 1.4;
       margin: 0;
       white-space: nowrap;
-    }
-
-    .hero-decoration {
-      position: absolute;
-      bottom: var(--space-2xl);
-      right: var(--space-2xl);
-      opacity: 0.5;
-    }
-
-    .decoration-arrow {
-      color: var(--color-text);
     }
 
     @keyframes scroll-bounce {
@@ -192,67 +210,85 @@ import { ScrollService } from '../../services/scroll.service';
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .scroll-arrow {
+      .scroll-arrow-icon {
         animation: none;
       }
     }
 
     @media (max-width: 1024px) {
+      .hero {
+        grid-template-columns: 1fr;
+        gap: var(--space-2xl);
+        min-height: 90vh;
+      }
+
+      .hero-email-left,
+      .hero-arrow-right {
+        display: none;
+      }
+
+      .hero-center {
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+      }
+
       .hero-heading {
-        font-size: clamp(2.5rem, 6vw, 3.5rem);
+        font-size: clamp(2.5rem, 10vw, 5rem);
       }
 
       .hero-name {
-        font-size: clamp(2rem, 5vw, 3rem);
+        font-size: clamp(1.5rem, 5vw, 2.5rem);
       }
 
-      .hero-divider-line {
-        max-width: 150px;
+      .hero-name-section {
+        justify-content: center;
+        margin-top: var(--space-md);
+      }
+
+      .hero-divider {
+        width: 150px;
       }
     }
 
     @media (max-width: 768px) {
       .hero {
+        grid-template-columns: 1fr;
+        gap: var(--space-xl);
         min-height: 80vh;
         padding: var(--space-xl) var(--space-md);
       }
 
-      .hero-container {
-        grid-template-columns: 1fr;
-        gap: var(--space-2xl);
-      }
-
       .hero-heading {
-        font-size: var(--font-size-4xl);
+        font-size: clamp(2rem, 9vw, 3.5rem);
       }
 
       .hero-name {
-        font-size: var(--font-size-3xl);
-        white-space: normal;
+        font-size: clamp(1.2rem, 4vw, 2rem);
       }
 
-      .hero-divider-section {
+      .hero-name-section {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
         gap: var(--space-md);
       }
 
-      .hero-divider-line {
+      .hero-divider {
+        width: 100px;
         height: 1px;
-        width: 60px;
-        max-width: 100%;
       }
 
-      .hero-sidebar {
-        display: none;
+      .hero-scroll-btn {
+        margin-top: var(--space-xl);
       }
 
-      .hero-decoration {
-        display: none;
+      .scroll-down-box {
+        gap: var(--space-sm);
       }
 
-      .scroll-indicator {
-        margin-top: var(--space-2xl);
+      .down-arrow {
+        max-width: 60px;
       }
     }
   `]
@@ -271,3 +307,4 @@ export class HeroComponent {
     this.scrollService.scrollToSection('about');
   }
 }
+

@@ -31,7 +31,7 @@ import { LanguageService } from '../../services/language.service';
 
           <div class="about-image-frame">
             <div class="image-placeholder">
-              <img src="assets/portrait.jpg" alt="Naiba Radshabov" loading="lazy">
+              <img src="self-portrait.jpg" alt="Naiba Radshabov" loading="lazy">
             </div>
           </div>
         </div>

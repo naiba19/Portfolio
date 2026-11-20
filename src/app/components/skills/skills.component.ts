@@ -159,16 +159,16 @@ interface Skill {
 })
 export class SkillsComponent {
   skills: Skill[] = [
-    { icon: '⚡', label: 'Angular', category: 'frontend' },
-    { icon: '🔹', label: 'TypeScript', category: 'frontend' },
-    { icon: '📝', label: 'JavaScript', category: 'frontend' },
-    { icon: '🎨', label: 'HTML', category: 'frontend' },
-    { icon: '🎨', label: 'CSS', category: 'frontend' },
-    { icon: '⚡', label: 'Supabase', category: 'backend' },
-    { icon: '🔧', label: 'Git', category: 'devops' },
-    { icon: '🔄', label: 'Scrum', category: 'devops' },
-    { icon: '🖼️', label: 'Material Design', category: 'frontend' },
-    { icon: '🔌', label: 'REST API', category: 'backend' },
+    { icon: '', label: 'Angular', category: 'frontend' },
+    { icon: '', label: 'TypeScript', category: 'frontend' },
+    { icon: '', label: 'JavaScript', category: 'frontend' },
+    { icon: '', label: 'HTML', category: 'frontend' },
+    { icon: '', label: 'CSS', category: 'frontend' },
+    { icon: '', label: 'Supabase', category: 'backend' },
+    { icon: '', label: 'Git', category: 'devops' },
+    { icon: '', label: 'Scrum', category: 'devops' },
+    { icon: '', label: 'Material Design', category: 'frontend' },
+    { icon: '', label: 'REST API', category: 'backend' },
   ];
 
   constructor(private languageService: LanguageService) {}

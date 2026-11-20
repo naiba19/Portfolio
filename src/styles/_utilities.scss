@@ -1,0 +1,55 @@
+/* ============================================================================
+   UTILITY CLASSES
+   ============================================================================
+   
+   This file contains reusable utility classes for layout, spacing, borders,
+   and other common styling patterns used throughout the application.
+   
+   ============================================================================ */
+
+/* Container utilities */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.container-fluid {
+  width: 100%;
+  padding: 0 2rem;
+}
+
+/* ============================================================================
+   DARK SECTION UTILITIES
+   ============================================================================ */
+
+.dark-section {
+  background-color: var(--color-dark-bg);
+  color: var(--color-text-dark);
+}
+
+/* ============================================================================
+   BORDER UTILITIES
+   ============================================================================ */
+
+.border-frame {
+  border: var(--border-width) solid var(--color-text);
+}
+
+.border-frame-light {
+  border: var(--border-width) solid var(--color-border);
+}
+
+/* ============================================================================
+   SECTION SPACING
+   ============================================================================ */
+
+.section-spacing {
+  padding: var(--space-4xl) var(--space-lg);
+}
+
+@media (max-width: 768px) {
+  .section-spacing {
+    padding: var(--space-2xl) var(--space-md);
+  }
+}
