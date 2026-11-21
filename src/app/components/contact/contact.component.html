@@ -1,0 +1,77 @@
+<section class="contact dark-section">
+      <img class="contact-arrow" src="/arrows/right.svg" alt="" aria-hidden="true">
+      <div class="contact-container">
+        <div class="contact-header">
+          <h2 class="contact-title">Say Hi!</h2>
+          <p class="contact-project-title">Want to discuss a new project?</p>
+          <p class="contact-subtitle">Say hello! let's discuss your ideas and make it happen</p>
+        </div>
+
+        <form class="contact-form" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <input 
+              type="text" 
+              placeholder="Your name"
+              formControlName="name"
+              class="form-input"
+              (blur)="markAsTouched('name')"
+            />
+            <div *ngIf="contactForm.get('name')?.invalid && contactForm.get('name')?.touched" class="error-state">
+              {{ translate('contact.error.name') }}
+            </div>
+          </div>
+
+          <div class="form-group">
+            <input 
+              type="email" 
+              placeholder="Your email"
+              formControlName="email"
+              class="form-input"
+              (blur)="markAsTouched('email')"
+            />
+            <div *ngIf="contactForm.get('email')?.invalid && contactForm.get('email')?.touched" class="error-state">
+              {{ translate('contact.error.email') }}
+            </div>
+          </div>
+
+          <div class="form-group">
+            <textarea 
+              placeholder="Your message"
+              formControlName="message"
+              class="form-input form-textarea"
+              (blur)="markAsTouched('message')"
+            ></textarea>
+            <div *ngIf="contactForm.get('message')?.invalid && contactForm.get('message')?.touched" class="error-state">
+              {{ translate('contact.error.message') }}
+            </div>
+          </div>
+
+          <div class="form-group checkbox-group">
+            <input 
+              type="checkbox" 
+              id="privacy"
+              formControlName="privacyConsent"
+              (blur)="markAsTouched('privacyConsent')"
+            />
+            <label for="privacy">
+              {{ translate('contact.privacy.accept') }}
+              <a href="/privacy" target="_blank" rel="noopener noreferrer" class="privacy-link">
+                {{ translate('contact.privacy.policy') }}
+              </a>
+            </label>
+          </div>
+
+          <button 
+            type="submit" 
+            class="contact-button"
+            [disabled]="!contactForm.valid || submitButtonText === 'Sending...'"
+          >
+            {{ submitButtonText }}
+          </button>
+
+          <div *ngIf="submitSuccess" class="success-message">
+            {{ translate('contact.success') }}
+          </div>
+        </form>
+      </div>
+    </section>

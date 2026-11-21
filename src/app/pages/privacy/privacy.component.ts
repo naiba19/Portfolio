@@ -5,39 +5,7 @@ import { CommonModule } from '@angular/common';
   selector: 'app-privacy',
   standalone: true,
   imports: [CommonModule],
-  template: `
-    <section class="privacy-page">
-      <div class="privacy-container">
-        <h1>Privacy Policy</h1>
-        <p class="placeholder">[Privacy Policy to be added]</p>
-      </div>
-    </section>
-  `,
-  styles: [`
-    .privacy-page {
-      padding: 4rem 2rem;
-      background-color: var(--color-background);
-      min-height: calc(100vh - 200px);
-    }
-
-    .privacy-container {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 2rem;
-      color: var(--color-text);
-    }
-
-    .placeholder {
-      font-style: italic;
-      color: var(--color-text-light);
-      padding: 2rem;
-      background-color: var(--color-surface);
-      border-radius: 8px;
-    }
-  `]
+  templateUrl: './privacy.component.html',
+  styleUrl: './privacy.component.scss'
 })
 export class PrivacyComponent {}

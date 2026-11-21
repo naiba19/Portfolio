@@ -1,0 +1,230 @@
+.contact {
+      position: relative;
+      background-color: #1A1A1A;
+      background-image: url('/background.png');
+      background-size: cover;
+      background-position: center bottom;
+      color: var(--color-text-dark);
+      padding: 220px var(--space-lg) var(--space-4xl);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .contact::before {
+      content: '';
+      position: absolute;
+      inset: 0 0 auto;
+      height: 220px;
+      background: var(--color-background);
+      clip-path: polygon(0 0, 100% 0, 100% 24%, 0 100%);
+      z-index: 0;
+    }
+
+    .contact-arrow {
+      position: absolute;
+      top: 3rem;
+      right: 3.5rem;
+      width: 235px;
+      height: 235px;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .contact-container {
+      max-width: 520px;
+      width: 100%;
+      position: relative;
+      z-index: 1;
+    }
+
+    .contact-header {
+      margin-bottom: var(--space-2xl);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .contact-title {
+      font-family: var(--font-family-heading);
+      width: min(426px, 100%);
+      height: 78px;
+      font-size: 78px;
+      font-weight: 800;
+      line-height: 100%;
+      letter-spacing: 0.01em;
+      color: #FFFCF3;
+      margin: 0 0 var(--space-lg) 0;
+    }
+
+    .contact-project-title {
+      font-family: var(--font-family-body);
+      font-size: 22px;
+      line-height: 120%;
+      font-weight: 400;
+      color: #20B89A;
+      margin: 0 0 0.5rem;
+    }
+
+    .contact-subtitle {
+      font-family: var(--font-family-body);
+      font-size: 22px;
+      line-height: 120%;
+      color: #FFFCF3;
+      margin: 0;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+
+    .form-input {
+      background-color: transparent;
+      border: none;
+      border-bottom: 1px solid var(--color-text-dark);
+      padding: 0.75rem 0;
+      font-family: var(--font-family-body);
+      font-size: var(--font-size-md);
+      color: var(--color-text-dark);
+      transition: all 0.3s ease;
+    }
+
+    .form-input::placeholder {
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .form-input:focus {
+      outline: none;
+      border-bottom-color: var(--color-primary);
+      box-shadow: 0 2px 0 0 var(--color-primary);
+    }
+
+    .form-textarea {
+      resize: vertical;
+      min-height: 160px;
+      border: 1px solid rgba(255, 252, 243, 0.75);
+      padding: 0.75rem;
+      border-radius: 0;
+    }
+
+    .form-textarea:focus {
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px rgba(255, 159, 64, 0.2);
+    }
+
+    .error-state {
+      font-family: var(--font-family-body);
+      font-size: var(--font-size-sm);
+      color: #FF6B6B;
+      margin-top: -var(--space-sm);
+    }
+
+    .checkbox-group {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-top: 0.25rem;
+    }
+
+    .checkbox-group input {
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+
+    .checkbox-group label {
+      font-family: var(--font-family-body);
+      font-size: var(--font-size-sm);
+      color: var(--color-text-dark);
+      cursor: pointer;
+      line-height: var(--line-height-relaxed);
+    }
+
+    .privacy-link {
+      color: var(--color-primary);
+      text-decoration: underline;
+      transition: color 0.3s ease;
+    }
+
+    .privacy-link:hover {
+      color: var(--color-primary-light);
+    }
+
+    .contact-button {
+      background-color: transparent;
+      border: 1px solid rgba(255, 252, 243, 0.45);
+      color: var(--color-text-dark);
+      height: 54px;
+      padding: 0 1.5rem;
+      font-family: var(--font-family-body);
+      font-size: var(--font-size-md);
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: var(--space-md);
+    }
+
+    .contact-button:hover:not(:disabled) {
+      background-color: var(--color-primary);
+      border-color: var(--color-primary);
+      color: var(--color-dark-bg);
+    }
+
+    .contact-button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .success-message {
+      background-color: rgba(76, 175, 80, 0.2);
+      border: var(--border-width) solid #4CAF50;
+      color: #4CAF50;
+      padding: var(--space-md);
+      border-radius: var(--border-radius-sm);
+      font-family: var(--font-family-body);
+      font-size: var(--font-size-sm);
+      margin-top: var(--space-md);
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .contact {
+        padding: var(--space-2xl) var(--space-md);
+        min-height: 760px;
+      }
+
+      .contact-title {
+        height: auto;
+        font-size: clamp(3.25rem, 16vw, 4.875rem);
+      }
+
+      .contact-subtitle {
+        font-size: 16px;
+      }
+
+      .contact-project-title {
+        font-size: 18px;
+      }
+
+      .form-input {
+        font-size: var(--font-size-sm);
+      }
+
+      .checkbox-group {
+        gap: var(--space-sm);
+      }
+    }

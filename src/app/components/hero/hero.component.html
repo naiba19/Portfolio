@@ -1,0 +1,24 @@
+<section class="hero" id="home">
+      <div class="hero-email-left">
+        <span class="email-text">naiba.radshabov<br>@outlook.de</span>
+      </div>
+
+      <div class="hero-center">
+        <div class="hero-heading-wrapper">
+          <h1 class="hero-heading">
+            <span>Full Stack</span>
+            <span>Developer</span>
+          </h1>
+        </div>
+
+        <div class="hero-name-section">
+          <img class="hero-divider" src="/arrows/line.svg" alt="" aria-hidden="true">
+          <span class="hero-name">{{ translate('hero.name') }}</span>
+        </div>
+      </div>
+
+      <button class="hero-scroll-btn" (click)="scrollToAbout()" [attr.aria-label]="'Scroll to About section'">
+        <img class="down-arrow" src="/arrows/down.svg" alt="" aria-hidden="true">
+        <span class="scroll-text">Scroll<br>Down</span>
+      </button>
+    </section>
