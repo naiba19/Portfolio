@@ -20,7 +20,7 @@ interface Skill {
         <div class="skills-frame">
           <div class="skills-grid">
             <div *ngFor="let skill of skills" class="skill-item">
-              <div class="skill-icon">{{ skill.icon }}</div>
+              <img class="skill-icon" [src]="skill.icon" [alt]="skill.label" loading="lazy">
               <p class="skill-label">{{ skill.label }}</p>
             </div>
           </div>
@@ -78,12 +78,9 @@ interface Skill {
     }
 
     .skill-icon {
-      font-size: var(--font-size-4xl);
-      line-height: 1;
-      height: 60px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      width: 64px;
+      height: 64px;
+      object-fit: contain;
     }
 
     .skill-label {
@@ -152,23 +149,24 @@ interface Skill {
       }
 
       .skill-icon {
-        font-size: var(--font-size-3xl);
+        width: 52px;
+        height: 52px;
       }
     }
   `]
 })
 export class SkillsComponent {
   skills: Skill[] = [
-    { icon: '', label: 'Angular', category: 'frontend' },
-    { icon: '', label: 'TypeScript', category: 'frontend' },
-    { icon: '', label: 'JavaScript', category: 'frontend' },
-    { icon: '', label: 'HTML', category: 'frontend' },
-    { icon: '', label: 'CSS', category: 'frontend' },
-    { icon: '', label: 'Supabase', category: 'backend' },
-    { icon: '', label: 'Git', category: 'devops' },
-    { icon: '', label: 'Scrum', category: 'devops' },
-    { icon: '', label: 'Material Design', category: 'frontend' },
-    { icon: '', label: 'REST API', category: 'backend' },
+    { icon: '/skills/angular.svg', label: 'Angular', category: 'frontend' },
+    { icon: '/skills/typescript.svg', label: 'TypeScript', category: 'frontend' },
+    { icon: '/skills/javascript.svg', label: 'JavaScript', category: 'frontend' },
+    { icon: '/skills/html.svg', label: 'HTML', category: 'frontend' },
+    { icon: '/skills/css.svg', label: 'CSS', category: 'frontend' },
+    { icon: '/skills/supabase.svg', label: 'Supabase', category: 'backend' },
+    { icon: '/skills/git.svg', label: 'Git', category: 'devops' },
+    { icon: '/skills/scrum.svg', label: 'Scrum', category: 'devops' },
+    { icon: '/skills/material-design.svg', label: 'Material Design', category: 'frontend' },
+    { icon: '/skills/rest-api.svg', label: 'REST API', category: 'backend' },
   ];
 
   constructor(private languageService: LanguageService) {}

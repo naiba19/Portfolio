@@ -17,11 +17,24 @@ import { ScrollService } from '../../services/scroll.service';
         <div class="header-right">
           <div class="language-toggle">
             <button 
-              (click)="toggleLanguage()" 
+              type="button"
+              (click)="setLanguage('en')" 
               class="lang-button"
-              [attr.aria-label]="'Switch to ' + (currentLanguage === 'de' ? 'English' : 'Deutsch')"
+              [class.active]="currentLanguage === 'en'"
+              [attr.aria-label]="'Switch to English'"
+              [attr.aria-pressed]="currentLanguage === 'en'"
             >
-              {{ currentLanguage === 'de' ? 'EN' : 'DE' }}
+              EN
+            </button>
+            <button 
+              type="button"
+              (click)="setLanguage('de')" 
+              class="lang-button"
+              [class.active]="currentLanguage === 'de'"
+              [attr.aria-label]="'Switch to Deutsch'"
+              [attr.aria-pressed]="currentLanguage === 'de'"
+            >
+              DE
             </button>
           </div>
 
@@ -111,7 +124,8 @@ import { ScrollService } from '../../services/scroll.service';
     .header-container {
       max-width: 1200px;
       margin: 0 auto;
-      padding: var(--space-lg) var(--space-lg);
+      height: 80px;
+      padding: 0 var(--space-lg);
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -150,6 +164,7 @@ import { ScrollService } from '../../services/scroll.service';
     .language-toggle {
       display: flex;
       align-items: center;
+      gap: 0.5rem;
     }
 
     .lang-button {
@@ -168,6 +183,10 @@ import { ScrollService } from '../../services/scroll.service';
     .lang-button:hover {
       background-color: var(--color-primary);
       color: var(--color-background);
+      border-color: var(--color-primary);
+    }
+
+    .lang-button.active {
       border-color: var(--color-primary);
     }
 
@@ -349,6 +368,7 @@ import { ScrollService } from '../../services/scroll.service';
 
     @media (max-width: 768px) {
       .header-container {
+        height: 72px;
         padding: var(--space-md) var(--space-md);
       }
 
@@ -425,9 +445,8 @@ export class HeaderComponent implements OnInit {
     });
   }
 
-  toggleLanguage(): void {
-    const newLang = this.currentLanguage === 'de' ? 'en' : 'de';
-    this.languageService.setLanguage(newLang);
+  setLanguage(language: Language): void {
+    this.languageService.setLanguage(language);
   }
 
   toggleMenu(): void {

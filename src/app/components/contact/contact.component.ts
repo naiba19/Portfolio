@@ -9,6 +9,7 @@ import { LanguageService } from '../../services/language.service';
   imports: [CommonModule, ReactiveFormsModule],
   template: `
     <section class="contact dark-section">
+      <img class="contact-arrow" src="/arrows/right.svg" alt="" aria-hidden="true">
       <div class="contact-container">
         <div class="contact-header">
           <h2 class="contact-title">{{ translate('contact.title') }}</h2>
@@ -88,13 +89,29 @@ import { LanguageService } from '../../services/language.service';
   `,
   styles: [`
     .contact {
-      background-color: var(--color-dark-bg);
+      position: relative;
+      background: linear-gradient(
+        168deg,
+        var(--color-background) 0,
+        var(--color-background) 170px,
+        var(--color-dark-bg) 171px,
+        var(--color-dark-bg) 100%
+      );
       color: var(--color-text-dark);
-      padding: var(--space-4xl) var(--space-lg);
+      padding: 220px var(--space-lg) var(--space-4xl);
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
+    }
+
+    .contact-arrow {
+      position: absolute;
+      top: 3rem;
+      right: 3.5rem;
+      width: 235px;
+      height: 235px;
+      pointer-events: none;
     }
 
     .contact-container {

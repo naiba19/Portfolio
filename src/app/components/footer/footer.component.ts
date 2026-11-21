@@ -36,6 +36,9 @@ import { ScrollService } from '../../services/scroll.service';
   styles: [`
     .footer {
       background-color: var(--color-dark-bg);
+      background-image: url('/background.png');
+      background-size: cover;
+      background-position: center;
       color: var(--color-text-dark);
       padding: var(--space-3xl) var(--space-lg);
       border-top: var(--border-width) solid var(--color-border-dark);

@@ -19,41 +19,8 @@ import { ContactComponent } from './components/contact/contact.component';
     PortfolioComponent,
     ContactComponent
   ],
-  template: `
-    <app-header></app-header>
-    <main>
-      <section id="home">
-        <app-hero></app-hero>
-      </section>
-      
-      <section id="about">
-        <app-about></app-about>
-      </section>
-      
-      <section id="skills">
-        <app-skills></app-skills>
-      </section>
-      
-      <section id="portfolio">
-        <app-portfolio></app-portfolio>
-      </section>
-      
-      <section id="contact">
-        <app-contact></app-contact>
-      </section>
-    </main>
-    <app-footer></app-footer>
-  `,
-  styles: [`
-    main {
-      flex: 1;
-      width: 100%;
-    }
-
-    section {
-      width: 100%;
-    }
-  `]
+  templateUrl: './app.html',
+  styleUrl: './app.scss'
 })
 export class App {
   title = 'naiba-portfolio';

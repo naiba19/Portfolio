@@ -106,8 +106,7 @@ import { LanguageService } from '../../services/language.service';
 
     .image-placeholder {
       width: 100%;
-      aspect-ratio: 3/4;
-      border: var(--border-width) solid var(--color-text);
+      aspect-ratio: 1 / 1;
       overflow: hidden;
       display: flex;
       align-items: center;
@@ -122,12 +121,7 @@ import { LanguageService } from '../../services/language.service';
     }
 
     .image-placeholder::before {
-      content: '';
-      position: absolute;
-      inset: var(--space-lg);
-      border: var(--border-width) solid var(--color-text);
-      pointer-events: none;
-      z-index: 1;
+      content: none;
     }
 
     @media (max-width: 1024px) {
