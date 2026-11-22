@@ -30,7 +30,7 @@ export class PortfolioComponent {
       descriptionDe: 'Eine Pokédex-Anwendung mit PokéAPI-Integration, dynamisches Laden von Pokémon-Daten, Filterfunktionen und responsive Design.',
       descriptionEn: 'A Pokédex application with PokéAPI integration, dynamic loading of Pokémon data, filtering features, and responsive design.',
       technologies: ['JavaScript', 'HTML', 'CSS', 'PokéAPI'],
-      image: 'assets/projects/pokedex.jpg',
+      image: '/projects/pokedex.png',
       github: 'https://github.com/naiba19/Pokedex',
       demo: 'https://naibaradshabov.developerakademie.net/Pokedex/index.html'
     },
@@ -40,9 +40,19 @@ export class PortfolioComponent {
       descriptionDe: 'Ein interaktives Browser-basiertes Jump-and-Run-Spiel mit Charakteranimationen, Gegner-KI, Kollisionserkennung und Punktesystem.',
       descriptionEn: 'An interactive browser-based jump-and-run game featuring character animations, enemy AI, collision detection, and scoring system.',
       technologies: ['JavaScript', 'HTML', 'CSS', 'Object-Oriented Programming'],
-      image: 'assets/projects/el-pollo-loco.jpg',
+      image: '/projects/el_pollo_loco.png',
       github: 'https://github.com/naiba19/El_Pollo_Loco',
       demo: 'https://naibaradshabov.developerakademie.net/El_Pollo_Loco/El_Pollo_Loco/index.html'
+    },
+    {
+      id: 3,
+      name: 'Join',
+      descriptionDe: 'Ein Kanban-gestütztes Projektmanagement-Tool mit Aufgabenverwaltung, Benutzerzuweisung und übersichtlichen Statusansichten.',
+      descriptionEn: 'A Kanban-based project management tool with task management, user assignment, and clear status views.',
+      technologies: ['JavaScript', 'HTML', 'CSS', 'Firebase'],
+      image: '/projects/join.png',
+      github: 'https://github.com/naiba19/Join',
+      demo: ''
     }
   ];
 

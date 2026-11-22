@@ -12,10 +12,9 @@
             class="project"
             [class.even]="even"
           >
-            <div class="project-number">{{ project.id | number: '2.0-0' }}</div>
-            
             <div class="project-content">
               <div class="project-text">
+                <div class="project-number">{{ project.id | number: '2.0-0' }}/04</div>
                 <h3 class="project-name">{{ project.name }}</h3>
                 
                 <p class="project-description">
@@ -42,13 +41,12 @@
                 <div class="image-frame">
                   <img [src]="project.image" [alt]="project.name" loading="lazy">
                 </div>
-                <div class="project-arrow">
-                  <svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="20" cy="20" r="18"></circle>
-                    <polyline points="14 20 20 26 26 20"></polyline>
-                    <polyline points="20 14 20 26"></polyline>
+                <a [href]="project.demo || project.github" target="_blank" rel="noopener noreferrer" class="project-arrow" [attr.aria-label]="project.name + ' project'">
+                  <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="7 21 21 7"></polyline>
+                    <polyline points="10 7 21 7 21 18"></polyline>
                   </svg>
-                </div>
+                </a>
               </div>
             </div>
           </article>

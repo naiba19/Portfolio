@@ -1,6 +1,6 @@
 .portfolio {
       background-color: var(--color-background);
-      padding: var(--space-4xl) var(--space-lg);
+      padding: 96px 100px 96px;
     }
 
     .portfolio-container {
@@ -10,37 +10,46 @@
 
     .portfolio-title {
       font-family: var(--font-family-heading);
-      font-size: var(--font-size-5xl);
+      width: 538px;
+      height: 78px;
+      max-width: 100%;
+      margin: 0 auto 16px;
+      font-size: 78px;
       font-weight: 800;
-      margin-bottom: var(--space-md);
+      line-height: 100%;
+      letter-spacing: 0.01em;
+      text-align: center;
       color: var(--color-text);
-      letter-spacing: -0.02em;
+      white-space: nowrap;
     }
 
     .portfolio-intro {
       font-family: var(--font-family-body);
-      font-size: var(--font-size-lg);
+      width: 520px;
+      max-width: 100%;
+      min-height: 52px;
+      margin: 0 auto 96px;
+      font-size: 18px;
       color: var(--color-text);
-      margin-bottom: var(--space-3xl);
-      line-height: var(--line-height-relaxed);
+      line-height: 26px;
+      text-align: center;
     }
 
     .projects-list {
       display: flex;
       flex-direction: column;
-      gap: var(--space-4xl);
+      gap: 96px;
     }
 
     .project {
       display: grid;
-      grid-template-columns: 60px 1fr;
-      gap: var(--space-2xl);
+      grid-template-columns: 1fr;
       align-items: center;
     }
 
     .project.even {
-      grid-template-columns: 1fr 60px;
-      direction: rtl;
+      grid-template-columns: 1fr;
+      direction: ltr;
     }
 
     .project.even > * {
@@ -49,32 +58,59 @@
 
     .project-number {
       font-family: var(--font-family-heading);
-      font-size: var(--font-size-2xl);
+      font-size: 40px;
       font-weight: 800;
       color: var(--color-text);
-      text-align: center;
+      text-align: left;
+      margin: 0 0 32px;
     }
 
     .project-content {
       display: grid;
-      grid-template-columns: 1fr auto;
-      gap: var(--space-2xl);
+      grid-template-columns: 42% 58%;
+      column-gap: 32px;
       align-items: center;
     }
 
-    .project.even .project-content {
-      grid-template-columns: auto 1fr;
+    .project:nth-child(odd) .project-text {
+      grid-column: 1;
+      grid-row: 1;
+    }
+
+    .project:nth-child(odd) .project-image-container {
+      grid-column: 2;
+      grid-row: 1;
+    }
+
+    .project:nth-child(even) .project-content {
+      grid-template-columns: 58% 42%;
+    }
+
+    .project:nth-child(even) .project-image-container {
+      grid-column: 1;
+      grid-row: 1;
+    }
+
+    .project:nth-child(even) .project-text {
+      grid-column: 2;
+      grid-row: 1;
     }
 
     .project-text {
       display: flex;
       flex-direction: column;
-      gap: var(--space-md);
+      gap: 16px;
+      max-width: 440px;
+      transition: opacity 0.35s ease;
+    }
+
+    .project:hover .project-text {
+      opacity: 1;
     }
 
     .project-name {
       font-family: var(--font-family-heading);
-      font-size: var(--font-size-3xl);
+      font-size: 48px;
       font-weight: 800;
       color: var(--color-text);
       margin: 0;
@@ -85,7 +121,7 @@
       font-family: var(--font-family-body);
       font-size: var(--font-size-md);
       color: var(--color-text);
-      line-height: var(--line-height-relaxed);
+      line-height: 1.6;
       margin: 0;
     }
 
@@ -115,13 +151,19 @@
 
     .project-actions {
       display: flex;
-      gap: var(--space-md);
+      gap: 12px;
+      margin-top: 24px;
     }
 
     .project-link {
       display: inline-block;
-      border: var(--border-width) solid var(--color-text);
-      padding: 0.75rem 1.5rem;
+      min-width: 132px;
+      height: 48px;
+      border: 2px solid var(--color-text);
+      padding: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       font-family: var(--font-family-body);
       font-weight: 600;
       color: var(--color-text);
@@ -140,13 +182,14 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: var(--space-md);
+      gap: 0;
     }
 
     .image-frame {
-      border: var(--border-width) solid var(--color-text);
-      width: 280px;
-      height: 200px;
+      border: 3px solid var(--color-text);
+      width: 100%;
+      aspect-ratio: 31 / 20;
+      height: auto;
       overflow: hidden;
       display: flex;
       align-items: center;
@@ -157,25 +200,44 @@
     .image-frame img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
+      filter: grayscale(100%);
+      transition: filter 0.35s ease;
+    }
+
+    .image-frame:hover img,
+    .project-image-container:hover img {
+      filter: grayscale(0%);
     }
 
     .project-arrow {
+      position: absolute;
+      left: -30px;
+      top: calc(50% - 30px);
       width: 60px;
       height: 60px;
-      border: var(--border-width) solid var(--color-text);
+      border: 3px solid var(--color-text);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
       transition: all 0.3s ease;
+      background: var(--color-text);
+      color: var(--color-background);
+      text-decoration: none;
+      z-index: 2;
     }
 
     .project-arrow:hover {
       background-color: var(--color-primary);
       border-color: var(--color-primary);
       color: var(--color-background);
+    }
+
+    .project:nth-child(even) .project-arrow {
+      left: auto;
+      right: -30px;
     }
 
     .project-arrow svg {
@@ -186,7 +248,14 @@
 
     @media (max-width: 1024px) {
       .portfolio-title {
-        font-size: var(--font-size-4xl);
+        width: 100%;
+        height: auto;
+        font-size: 64px;
+      }
+
+      .portfolio-intro {
+        width: 520px;
+        margin-bottom: 64px;
       }
 
       .project-name {
@@ -194,8 +263,9 @@
       }
 
       .image-frame {
-        width: 250px;
-        height: 180px;
+        width: 100%;
+        aspect-ratio: 31 / 20;
+        height: auto;
       }
     }
 
@@ -205,8 +275,17 @@
       }
 
       .portfolio-title {
-        font-size: var(--font-size-3xl);
-        margin-bottom: var(--space-md);
+        height: auto;
+        font-size: clamp(3.25rem, 16vw, 4.875rem);
+        margin-bottom: 12px;
+      }
+
+      .portfolio-intro {
+        width: 100%;
+        min-height: 0;
+        margin-bottom: 48px;
+        font-size: 16px;
+        line-height: 24px;
       }
 
       .projects-list {
@@ -231,8 +310,16 @@
         grid-template-columns: 1fr;
       }
 
-      .project.even .project-content {
+      .project:nth-child(even) .project-content {
         grid-template-columns: 1fr;
+      }
+
+      .project:nth-child(odd) .project-text,
+      .project:nth-child(odd) .project-image-container,
+      .project:nth-child(even) .project-text,
+      .project:nth-child(even) .project-image-container {
+        grid-column: 1;
+        grid-row: auto;
       }
 
       .project-number {
@@ -245,6 +332,7 @@
 
       .image-frame {
         width: 100%;
-        height: 200px;
+        aspect-ratio: 31 / 20;
+        height: auto;
       }
     }

@@ -19,18 +19,19 @@
       inset: 0 0 auto;
       height: 300px;
       background: var(--color-background);
-      clip-path: polygon(0 0, 100% 0, 100% 60%, 0 100%);
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 40%);
       z-index: 0;
     }
 
     .contact-arrow {
       position: absolute;
-      top: 3rem;
+      top: 48px;
       right: 100px;
       width: 235px;
       height: 235px;
       pointer-events: none;
       z-index: 1;
+      overflow: visible;
     }
 
     .contact-container {
@@ -223,7 +224,7 @@
 
       .contact::before {
         height: 220px;
-        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 60%);
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 40%);
       }
 
       .contact-arrow {
