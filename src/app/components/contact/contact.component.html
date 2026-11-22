@@ -2,16 +2,16 @@
       <img class="contact-arrow" src="/arrows/right.svg" alt="" aria-hidden="true">
       <div class="contact-container">
         <div class="contact-header">
-          <h2 class="contact-title">Say Hi!</h2>
-          <p class="contact-project-title">Want to discuss a new project?</p>
-          <p class="contact-subtitle">Say hello! let's discuss your ideas and make it happen</p>
+          <h2 class="contact-title">{{ translate('contact.title') }}</h2>
+          <p class="contact-project-title">{{ translate('contact.project.title') }}</p>
+          <p class="contact-subtitle">{{ translate('contact.subtitle') }}</p>
         </div>
 
         <form class="contact-form" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
           <div class="form-group">
             <input 
               type="text" 
-              placeholder="Your name"
+              [placeholder]="translate('contact.placeholder.name')"
               formControlName="name"
               class="form-input"
               (blur)="markAsTouched('name')"
@@ -24,7 +24,7 @@
           <div class="form-group">
             <input 
               type="email" 
-              placeholder="Your email"
+              [placeholder]="translate('contact.placeholder.email')"
               formControlName="email"
               class="form-input"
               (blur)="markAsTouched('email')"
@@ -36,7 +36,7 @@
 
           <div class="form-group">
             <textarea 
-              placeholder="Your message"
+              [placeholder]="translate('contact.placeholder.message')"
               formControlName="message"
               class="form-input form-textarea"
               (blur)="markAsTouched('message')"

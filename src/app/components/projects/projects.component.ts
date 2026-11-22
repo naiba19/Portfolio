@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LanguageService } from '../../services/language.service';
 
@@ -21,7 +21,7 @@ interface Project {
   styleUrl: './projects.component.scss'
 })
 export class PortfolioComponent {
-  currentLanguage: 'de' | 'en' = 'de';
+  currentLanguage: 'de' | 'en' = 'en';
 
   projects: Project[] = [
     {
@@ -31,7 +31,8 @@ export class PortfolioComponent {
       descriptionEn: 'A Pokédex application with PokéAPI integration, dynamic loading of Pokémon data, filtering features, and responsive design.',
       technologies: ['JavaScript', 'HTML', 'CSS', 'PokéAPI'],
       image: 'assets/projects/pokedex.jpg',
-      github: 'https://github.com/naiba19'
+      github: 'https://github.com/naiba19/Pokedex',
+      demo: 'https://naibaradshabov.developerakademie.net/Pokedex/index.html'
     },
     {
       id: 2,
@@ -40,13 +41,19 @@ export class PortfolioComponent {
       descriptionEn: 'An interactive browser-based jump-and-run game featuring character animations, enemy AI, collision detection, and scoring system.',
       technologies: ['JavaScript', 'HTML', 'CSS', 'Object-Oriented Programming'],
       image: 'assets/projects/el-pollo-loco.jpg',
-      github: 'https://github.com/naiba19'
+      github: 'https://github.com/naiba19/El_Pollo_Loco',
+      demo: 'https://naibaradshabov.developerakademie.net/El_Pollo_Loco/El_Pollo_Loco/index.html'
     }
   ];
 
-  constructor(private languageService: LanguageService) {
+  constructor(
+    private languageService: LanguageService,
+    private changeDetectorRef: ChangeDetectorRef
+  ) {
+    this.currentLanguage = languageService.getLanguage();
     this.languageService.currentLanguage$.subscribe(lang => {
       this.currentLanguage = lang;
+      this.changeDetectorRef.markForCheck();
     });
   }
 

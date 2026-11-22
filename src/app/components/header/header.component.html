@@ -52,9 +52,9 @@
         (click)="closeMenu()"
       >
         <nav class="menu-content" aria-label="Main navigation" (click)="$event.stopPropagation()">
-          <button type="button" class="menu-item" (click)="navigateTo('about')">About me</button>
-          <button type="button" class="menu-item" (click)="navigateTo('skills')">My skills</button>
-          <button type="button" class="menu-item" (click)="navigateTo('portfolio')">Portfolio</button>
+          <button type="button" class="menu-item" (click)="navigateTo('about')">{{ translate('nav.about') }}</button>
+          <button type="button" class="menu-item" (click)="navigateTo('skills')">{{ translate('nav.skills') }}</button>
+          <button type="button" class="menu-item" (click)="navigateTo('portfolio')">{{ translate('nav.portfolio') }}</button>
         </nav>
 
         <div class="menu-footer" (click)="$event.stopPropagation()">

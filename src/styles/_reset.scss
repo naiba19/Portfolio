@@ -19,7 +19,7 @@ body {
 }
 
 html {
-  background-color: #000000;
+  background-color: var(--color-background);
 }
 
 body {
@@ -27,7 +27,7 @@ body {
   font-size: var(--font-size-base);
   line-height: var(--line-height-base);
   color: var(--color-text);
-  background-color: #000000;
+  background-color: var(--color-background);
   display: flex;
   flex-direction: column;
   overflow-x: hidden;

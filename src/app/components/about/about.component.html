@@ -5,19 +5,24 @@
     <div class="about-content">
       <div class="about-text">
         <p class="about-intro">
-          I'm a full-stack developer passionate about creating clean, functional, and user-centered web applications.
-          With a focus on modern technologies and best practices, I transform ideas into interactive digital experiences.
+          {{ translate('about.intro') }}
         </p>
 
         <p class="about-details">
-          I work with technologies like Angular, TypeScript, JavaScript, and REST APIs to build scalable applications.
-          My approach combines analytical thinking, creative problem-solving, and attention to detail.
+          {{ translate('about.details') }}
         </p>
 
         <div class="about-info">
-          <p><strong>📍 Location:</strong> Hagen, Germany</p>
-          <p><strong>🔄 Status:</strong> Open to remote work and collaboration</p>
+          <p class="about-info-item">
+            <img src="/icons/location.svg" alt="" aria-hidden="true">
+            <span><strong>{{ translate('about.location') }}</strong> {{ translate('about.location.value') }}</span>
+          </p>
+          <p class="about-info-item">
+            <img src="/icons/remote.svg" alt="" aria-hidden="true">
+            <span><strong>{{ translate('about.status') }}</strong> {{ translate('about.status.value') }}</span>
+          </p>
         </div>
+        <button type="button" class="about-talk" (click)="scrollToContact()">{{ translate('about.talk') }}</button>
       </div>
 
       <div class="about-image-frame">

@@ -32,6 +32,9 @@
                   <a *ngIf="project.github" [href]="project.github" target="_blank" rel="noopener noreferrer" class="project-link">
                     GitHub
                   </a>
+                  <a *ngIf="project.demo" [href]="project.demo" target="_blank" rel="noopener noreferrer" class="project-link">
+                    {{ currentLanguage === 'de' ? 'Live-Demo' : 'Live demo' }}
+                  </a>
                 </div>
               </div>
 

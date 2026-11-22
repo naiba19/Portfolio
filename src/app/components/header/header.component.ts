@@ -11,7 +11,7 @@ import { ScrollService } from '../../services/scroll.service';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent implements OnInit {
-  currentLanguage: Language = 'de';
+  currentLanguage: Language = 'en';
   menuOpen = false;
 
   constructor(
