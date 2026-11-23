@@ -62,7 +62,7 @@ export class LanguageService {
       'hero.title': 'Full Stack Developer',
       'hero.name': 'Naiba Radshabov',
       'hero.scroll': 'Scroll Down',
-      'about.title': 'About Me',
+      'about.title': 'About me',
       'about.intro': 'I build browser-based applications with JavaScript and Angular. For the Pokédex project, I solved the challenge of presenting large amounts of API data in a fast, clear, and responsive interface.',
       'about.details': 'I fetched Pokémon data through the PokéAPI, implemented filtering and caching, and adapted the interface for mobile devices. The result is a responsive application that makes it easy to search and explore Pokémon.',
       'about.location': 'Location:',

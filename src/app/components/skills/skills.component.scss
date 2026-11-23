@@ -1,5 +1,7 @@
 .skills {
       background-color: var(--color-background);
+      background-image: radial-gradient(circle, rgba(240, 219, 199, 0.45) 0.75px, transparent 1px);
+      background-size: 64px 64px;
       padding: var(--space-4xl) var(--space-lg);
     }
 
@@ -10,12 +12,23 @@
 
     .skills-title {
       font-family: var(--font-family-heading);
-      font-size: var(--font-size-5xl);
+      width: 100%;
+      height: 78px;
+      font-size: 78px;
       font-weight: 800;
+      line-height: 100%;
+      letter-spacing: 0.01em;
       text-align: center;
       margin-bottom: var(--space-3xl);
       color: var(--color-text);
-      letter-spacing: -0.02em;
+      animation: heading-title-color 4s ease-in-out infinite;
+      will-change: color;
+    }
+
+    @keyframes heading-title-color {
+      0%, 100% { color: var(--color-text); }
+      25%, 75% { color: var(--color-primary); }
+      50% { color: var(--color-text); }
     }
 
     .skills-frame {

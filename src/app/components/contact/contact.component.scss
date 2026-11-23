@@ -67,6 +67,14 @@
       top: 0;
       text-align: left;
       margin: 0;
+      animation: heading-title-color 4s ease-in-out infinite;
+      will-change: color;
+    }
+
+    @keyframes heading-title-color {
+      0%, 100% { color: #FFFCF3; }
+      25%, 75% { color: var(--color-primary); }
+      50% { color: #FFFCF3; }
     }
 
     .contact-project-title {
