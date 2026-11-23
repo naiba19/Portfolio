@@ -1,5 +1,7 @@
 .portfolio {
       background-color: var(--color-background);
+      background-image: radial-gradient(circle, rgba(240, 219, 199, 0.45) 0.75px, transparent 1px);
+      background-size: 64px 64px;
       padding: 96px 100px 96px;
     }
 
@@ -21,6 +23,14 @@
       text-align: center;
       color: var(--color-text);
       white-space: nowrap;
+      animation: heading-title-color 4s ease-in-out infinite;
+      will-change: color;
+    }
+
+    @keyframes heading-title-color {
+      0%, 100% { color: var(--color-text); }
+      25%, 75% { color: var(--color-primary); }
+      50% { color: var(--color-text); }
     }
 
     .portfolio-intro {
@@ -195,7 +205,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background-color: var(--color-surface);
+      background-color: transparent;
     }
 
     .image-frame img {
