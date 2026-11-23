@@ -1,0 +1,84 @@
+/* ============================================================================
+   DESIGN TOKENS & CSS CUSTOM PROPERTIES
+   ============================================================================ */
+
+:root {
+  /* ========================================================================
+     COLOR PALETTE
+     ======================================================================== */
+  
+  /* Reference palette */
+  --color-background: #fffcf3;
+  --color-text: #000000;
+  --color-white: #ffffff;
+  --color-accent: #00bcbf;
+  --color-background-dots: #f0dbc7;
+
+  /* Existing aliases */
+  --color-primary: var(--color-accent);
+  --color-primary-dark: var(--color-accent);
+  --color-primary-light: var(--color-accent);
+  
+  /* Background & Surfaces */
+  --color-surface: var(--color-background-dots);
+  --color-dark-bg: #1A1A1A;
+  --color-dark-surface: #2A2A2A;
+  
+  /* Text Colors */
+  --color-text-light: #666666;
+  --color-text-dark: var(--color-white);
+  
+  /* Borders */
+  --color-border: #EEEBE5;
+  --color-border-dark: #3A3A3A;
+
+  /* ========================================================================
+     TYPOGRAPHY - FONT FAMILIES
+     ======================================================================== */
+  --font-heading: 'Syne', sans-serif;
+  --font-body: 'Overpass', sans-serif;
+  --font-family-heading: var(--font-heading);
+  --font-family-body: var(--font-body);
+  --font-family: var(--font-family-body);
+  
+  /* ========================================================================
+     TYPOGRAPHY - FONT SIZES
+     ======================================================================== */
+  --font-size-base: 16px;
+  --font-size-sm: 14px;
+  --font-size-md: 16px;
+  --font-size-lg: 18px;
+  --font-size-xl: 24px;
+  --font-size-2xl: 32px;
+  --font-size-3xl: 40px;
+  --font-size-4xl: 48px;
+  --font-size-5xl: 56px;
+  --font-size-6xl: 64px;
+  --font-size-7xl: 72px;
+  
+  /* ========================================================================
+     TYPOGRAPHY - LINE HEIGHTS
+     ======================================================================== */
+  --line-height-tight: 1.2;
+  --line-height-base: 1.6;
+  --line-height-relaxed: 1.8;
+
+  /* ========================================================================
+     SPACING (8px grid system)
+     ======================================================================== */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+  --space-2xl: 4rem;
+  --space-3xl: 5rem;
+  --space-4xl: 6rem;
+  
+  /* ========================================================================
+     BORDERS & SHADOWS
+     ======================================================================== */
+  --border-width: 2px;
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+}

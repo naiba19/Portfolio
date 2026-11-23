@@ -1,0 +1,35 @@
+<section class="about">
+  <div class="about-container">
+    <h2 class="about-title">{{ translate('about.title') }}</h2>
+
+    <div class="about-content">
+      <div class="about-text">
+        <p class="about-intro">
+          {{ translate('about.intro') }}
+        </p>
+
+        <p class="about-details">
+          {{ translate('about.details') }}
+        </p>
+
+        <div class="about-info">
+          <p class="about-info-item">
+            <img src="/icons/location.svg" alt="" aria-hidden="true">
+            <span><strong>{{ translate('about.location') }}</strong> {{ translate('about.location.value') }}</span>
+          </p>
+          <p class="about-info-item">
+            <img src="/icons/remote.svg" alt="" aria-hidden="true">
+            <span><strong>{{ translate('about.status') }}</strong> {{ translate('about.status.value') }}</span>
+          </p>
+        </div>
+        <button type="button" class="about-talk" (click)="scrollToContact()">{{ translate('about.talk') }}</button>
+      </div>
+
+      <div class="about-image-frame">
+        <div class="image-placeholder">
+          <img src="self-portrait.jpg" alt="Naiba Radshabov" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

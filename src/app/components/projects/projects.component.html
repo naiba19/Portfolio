@@ -1,0 +1,55 @@
+<section class="portfolio">
+      <div class="portfolio-container">
+        <h2 class="portfolio-title">{{ translate('portfolio.title') }}</h2>
+        
+        <p class="portfolio-intro">
+          {{ translate('portfolio.intro') }}
+        </p>
+
+        <div class="projects-list">
+          <article 
+            *ngFor="let project of projects; let even = even" 
+            class="project"
+            [class.even]="even"
+          >
+            <div class="project-content">
+              <div class="project-text">
+                <div class="project-number">{{ project.id | number: '2.0-0' }}/04</div>
+                <h3 class="project-name">{{ project.name }}</h3>
+                
+                <p class="project-description">
+                  {{ currentLanguage === 'de' ? project.descriptionDe : project.descriptionEn }}
+                </p>
+                
+                <div class="project-tech">
+                  <span *ngFor="let tech of project.technologies" class="tech-label">
+                    {{ tech }}
+                  </span>
+                </div>
+
+                <div class="project-actions">
+                  <a *ngIf="project.github" [href]="project.github" target="_blank" rel="noopener noreferrer" class="project-link">
+                    GitHub
+                  </a>
+                  <a *ngIf="project.demo" [href]="project.demo" target="_blank" rel="noopener noreferrer" class="project-link">
+                    {{ currentLanguage === 'de' ? 'Live-Demo' : 'Live demo' }}
+                  </a>
+                </div>
+              </div>
+
+              <div class="project-image-container" *ngIf="project.image">
+                <div class="image-frame">
+                  <img [src]="project.image" [alt]="project.name" loading="lazy">
+                </div>
+                <a [href]="project.demo || project.github" target="_blank" rel="noopener noreferrer" class="project-arrow" [attr.aria-label]="project.name + ' project'">
+                  <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="7 21 21 7"></polyline>
+                    <polyline points="10 7 21 7 21 18"></polyline>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>

@@ -1,0 +1,21 @@
+/* ============================================================================
+   GLOBAL STYLES - MAIN ENTRY POINT
+   ============================================================================
+   
+   This file imports all SCSS partials using the modern @use syntax.
+   The partials are organized by responsibility:
+   
+   - _fonts.scss      → @font-face declarations for custom fonts
+   - _tokens.scss     → CSS custom properties & design tokens
+   - _typography.scss → Typography rules, headings, body text
+   - _reset.scss      → Global resets & base styles
+   - _utilities.scss  → Utility classes & reusable styles
+   
+   ============================================================================ */
+
+@use './styles/fonts';
+@use './styles/tokens';
+@use './styles/typography';
+@use './styles/reset';
+@use './styles/utilities';
+

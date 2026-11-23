@@ -1,0 +1,29 @@
+<ng-container *ngIf="isPrivacyPage">
+  <router-outlet></router-outlet>
+</ng-container>
+
+<ng-container *ngIf="!isPrivacyPage">
+  <app-header></app-header>
+
+  <main>
+    <app-hero></app-hero>
+
+    <section id="about">
+      <app-about></app-about>
+    </section>
+
+    <section id="skills">
+      <app-skills></app-skills>
+    </section>
+
+    <section id="portfolio">
+      <app-portfolio></app-portfolio>
+    </section>
+
+    <section id="contact">
+      <app-contact></app-contact>
+    </section>
+  </main>
+
+  <app-footer></app-footer>
+</ng-container>

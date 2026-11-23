@@ -1,0 +1,21 @@
+<section class="skills">
+      <div class="skills-container">
+        <h2 class="skills-title">{{ translate('skills.title') }}</h2>
+        
+        <div class="skills-frame">
+          <div class="skills-grid">
+            <div *ngFor="let skill of skills" class="skill-item">
+              <img class="skill-icon" [src]="skill.icon" [alt]="skill.label" loading="lazy">
+              <p class="skill-label">{{ skill.label }}</p>
+            </div>
+          </div>
+
+          <div class="skills-message">
+            <p>{{ translate('skills.message') }}</p>
+            <a [href]="'mailto:naiba.radshabov@outlook.de'" class="contact-link">
+              {{ translate('skills.contact') }}
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
