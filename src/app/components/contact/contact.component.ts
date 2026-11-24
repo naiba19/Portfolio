@@ -13,6 +13,7 @@ import { LanguageService } from '../../services/language.service';
 export class ContactComponent {
   submitButtonText = 'Send message';
   submitSuccess = false;
+  submitError = false;
   contactForm: FormGroup;
 
   constructor(
@@ -24,7 +25,8 @@ export class ContactComponent {
       name: ['', [Validators.required, Validators.minLength(2)]],
       email: ['', [Validators.required, Validators.email]],
       message: ['', [Validators.required, Validators.minLength(10)]],
-      privacyConsent: [false, Validators.requiredTrue]
+      privacyConsent: [false, Validators.requiredTrue],
+      website: ['']
     });
 
     this.submitButtonText = this.translate('contact.button');
@@ -46,19 +48,43 @@ export class ContactComponent {
   }
 
   onSubmit(): void {
-    if (this.contactForm.valid) {
-      this.submitButtonText = this.translate('contact.sending');
-      console.log('Form submitted:', this.contactForm.value);
-      
-      setTimeout(() => {
+    if (!this.contactForm.valid) {
+      return;
+    }
+
+    this.submitButtonText = this.translate('contact.sending');
+    const payload = {
+      name: this.contactForm.value.name,
+      email: this.contactForm.value.email,
+      message: this.contactForm.value.message,
+      website: this.contactForm.value.website
+    };
+
+    fetch('/contact.php', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    })
+      .then(async response => {
+        const result = await response.json();
+        if (!response.ok || !result.success) {
+          throw new Error(result.error || 'Contact request failed');
+        }
         this.submitSuccess = true;
         this.contactForm.reset();
+      })
+      .catch(() => {
+        this.submitSuccess = false;
+        this.submitError = true;
+      })
+      .finally(() => {
         this.submitButtonText = this.translate('contact.button');
-        
+        this.changeDetectorRef.markForCheck();
         setTimeout(() => {
           this.submitSuccess = false;
+          this.submitError = false;
+          this.changeDetectorRef.markForCheck();
         }, 5000);
-      }, 500);
-    }
+      });
   }
 }
