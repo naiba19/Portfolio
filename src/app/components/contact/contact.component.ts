@@ -60,7 +60,14 @@ export class ContactComponent {
       website: this.contactForm.value.website
     };
 
-    fetch('/contact.php', {
+    const isLocalDevelopment =
+      window.location.hostname === 'localhost' ||
+      window.location.hostname === '127.0.0.1';
+    const contactEndpoint = isLocalDevelopment
+      ? 'http://localhost:8000/contact.php'
+      : '/contact.php';
+
+    fetch(contactEndpoint, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload)
