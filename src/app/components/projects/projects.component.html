@@ -1,9 +1,9 @@
 <section class="portfolio">
       <div class="portfolio-container">
-        <h2 class="portfolio-title">{{ translate('portfolio.title') }}</h2>
+        <h2 class="portfolio-title">{{ 'portfolio.title' | translate }}</h2>
         
         <p class="portfolio-intro">
-          {{ translate('portfolio.intro') }}
+          {{ 'portfolio.intro' | translate }}
         </p>
 
         <div class="projects-list">
@@ -18,7 +18,7 @@
                 <h3 class="project-name">{{ project.name }}</h3>
                 
                 <p class="project-description">
-                  {{ currentLanguage === 'de' ? project.descriptionDe : project.descriptionEn }}
+                  {{ project.descriptionKey | translate }}
                 </p>
                 
                 <div class="project-tech">
@@ -32,7 +32,7 @@
                     GitHub
                   </a>
                   <a *ngIf="project.demo" [href]="project.demo" target="_blank" rel="noopener noreferrer" class="project-link">
-                    {{ currentLanguage === 'de' ? 'Live-Demo' : 'Live demo' }}
+                    {{ 'portfolio.liveDemo' | translate }}
                   </a>
                 </div>
               </div>
@@ -41,7 +41,7 @@
                 <div class="image-frame">
                   <img [src]="project.image" [alt]="project.name" loading="lazy">
                 </div>
-                <a [href]="project.demo || project.github" target="_blank" rel="noopener noreferrer" class="project-arrow" [attr.aria-label]="project.name + ' project'">
+                <a [href]="project.demo || project.github" target="_blank" rel="noopener noreferrer" class="project-arrow" [attr.aria-label]="project.name + ('portfolio.projectAria' | translate)">
                   <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2">
                     <polyline points="7 21 21 7"></polyline>
                     <polyline points="10 7 21 7 21 18"></polyline>

@@ -2,47 +2,47 @@
       <img class="contact-arrow" src="/arrows/right.svg" alt="" aria-hidden="true">
       <div class="contact-container">
         <div class="contact-header">
-          <h2 class="contact-title">{{ translate('contact.title') }}</h2>
-          <p class="contact-project-title">{{ translate('contact.project.title') }}</p>
-          <p class="contact-subtitle">{{ translate('contact.subtitle') }}</p>
+          <h2 class="contact-title">{{ 'contact.title' | translate }}</h2>
+          <p class="contact-project-title">{{ 'contact.projectTitle' | translate }}</p>
+          <p class="contact-subtitle">{{ 'contact.subtitle' | translate }}</p>
         </div>
 
         <form class="contact-form" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
           <div class="form-group">
             <input 
               type="text" 
-              [placeholder]="translate('contact.placeholder.name')"
+              [placeholder]="'contact.placeholder.name' | translate"
               formControlName="name"
               class="form-input"
               (blur)="markAsTouched('name')"
             />
             <div *ngIf="contactForm.get('name')?.invalid && contactForm.get('name')?.touched" class="error-state">
-              {{ translate('contact.error.name') }}
+              {{ 'contact.error.name' | translate }}
             </div>
           </div>
 
           <div class="form-group">
             <input 
               type="email" 
-              [placeholder]="translate('contact.placeholder.email')"
+              [placeholder]="'contact.placeholder.email' | translate"
               formControlName="email"
               class="form-input"
               (blur)="markAsTouched('email')"
             />
             <div *ngIf="contactForm.get('email')?.invalid && contactForm.get('email')?.touched" class="error-state">
-              {{ translate('contact.error.email') }}
+              {{ 'contact.error.email' | translate }}
             </div>
           </div>
 
           <div class="form-group">
             <textarea 
-              [placeholder]="translate('contact.placeholder.message')"
+              [placeholder]="'contact.placeholder.message' | translate"
               formControlName="message"
               class="form-input form-textarea"
               (blur)="markAsTouched('message')"
             ></textarea>
             <div *ngIf="contactForm.get('message')?.invalid && contactForm.get('message')?.touched" class="error-state">
-              {{ translate('contact.error.message') }}
+              {{ 'contact.error.message' | translate }}
             </div>
 
             <input
@@ -64,9 +64,9 @@
               (blur)="markAsTouched('privacyConsent')"
             />
             <label for="privacy">
-              {{ translate('contact.privacy.accept') }}
+              {{ 'contact.privacy.accept' | translate }}
               <a href="/privacy" target="_blank" rel="noopener noreferrer" class="privacy-link">
-                {{ translate('contact.privacy.policy') }}
+                {{ 'contact.privacy.policy' | translate }}
               </a>
             </label>
           </div>
@@ -74,16 +74,16 @@
           <button 
             type="submit" 
             class="contact-button"
-            [disabled]="!contactForm.valid || submitButtonText === 'Sending...'"
+            [disabled]="!contactForm.valid || isSubmitting"
           >
             {{ submitButtonText }}
           </button>
 
           <div *ngIf="submitSuccess" class="success-message">
-            {{ translate('contact.success') }}
+            {{ 'contact.success' | translate }}
           </div>
           <div *ngIf="submitError" class="error-state submit-error">
-            {{ translate('contact.error.submit') }}
+            {{ 'contact.error.submit' | translate }}
           </div>
         </form>
       </div>

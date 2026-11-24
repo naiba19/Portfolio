@@ -6,19 +6,19 @@
       <div class="hero-center">
         <div class="hero-heading-wrapper">
           <h1 class="hero-heading">
-            <span>Full Stack</span>
-            <span>Developer</span>
+            <span>{{ 'hero.titleFull' | translate }}</span>
+            <span>{{ 'hero.titleDeveloper' | translate }}</span>
           </h1>
         </div>
 
         <div class="hero-name-section">
           <img class="hero-divider" src="/arrows/line.svg" alt="" aria-hidden="true">
-          <span class="hero-name">{{ translate('hero.name') }}</span>
+          <span class="hero-name">{{ 'hero.name' | translate }}</span>
         </div>
       </div>
 
-      <button class="hero-scroll-btn" (click)="scrollToAbout()" [attr.aria-label]="'Scroll to About section'">
+      <button class="hero-scroll-btn" (click)="scrollToAbout()" [attr.aria-label]="'hero.scrollAria' | translate">
         <img class="down-arrow" src="/arrows/down.svg" alt="" aria-hidden="true">
-        <span class="scroll-text">{{ translate('hero.scroll') }}</span>
+        <span class="scroll-text">{{ 'hero.scroll' | translate }}</span>
       </button>
     </section>

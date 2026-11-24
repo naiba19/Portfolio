@@ -1,12 +1,13 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TranslatePipe } from '@ngx-translate/core';
 import { LanguageService, Language } from '../../services/language.service';
 import { ScrollService } from '../../services/scroll.service';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslatePipe],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
@@ -55,7 +56,4 @@ export class HeaderComponent implements OnInit {
     this.scrollService.scrollToSection(sectionId);
   }
 
-  translate(key: string): string {
-    return this.languageService.translate(key);
-  }
 }

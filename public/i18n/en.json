@@ -1,0 +1,90 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "skills": "Skills",
+    "portfolio": "Portfolio",
+    "contact": "Contact"
+  },
+  "header": {
+    "logo": "Home",
+    "switchEnglish": "Switch to English",
+    "switchGerman": "Switch to Deutsch",
+    "openMenu": "Open navigation menu",
+    "closeMenu": "Close navigation menu",
+    "navigation": "Main navigation",
+    "socialLinks": "Social links",
+    "sayHi": "Say Hi!",
+    "github": "GitHub",
+    "email": "Email",
+    "linkedin": "LinkedIn"
+  },
+  "hero": {
+    "titleFull": "Full Stack",
+    "titleDeveloper": "Developer",
+    "name": "Naiba Radshabov",
+    "scroll": "Scroll Down",
+    "scrollAria": "Scroll to About section"
+  },
+  "about": {
+    "title": "About me",
+    "intro": "I build browser-based applications with JavaScript and Angular. For the Pokédex project, I solved the challenge of presenting large amounts of API data in a fast, clear, and responsive interface.",
+    "details": "I fetched Pokémon data through the PokéAPI, implemented filtering and caching, and adapted the interface for mobile devices. The result is a responsive application that makes it easy to search and explore Pokémon.",
+    "location": "Location:",
+    "locationValue": "Hagen, Germany",
+    "status": "Status:",
+    "statusValue": "Open to remote work and collaboration",
+    "talk": "Let's talk"
+  },
+  "skills": {
+    "title": "My Skills",
+    "message": "Don't see the skill you need? I'm always ready to learn!",
+    "contact": "Contact me"
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "intro": "Explore a selection of my work here - interact with projects to see my skills in action.",
+    "liveDemo": "Live demo",
+    "projectAria": " project",
+    "projects": {
+      "pokedex": "A Pokédex application with PokéAPI integration, dynamic loading of Pokémon data, filtering features, and responsive design.",
+      "pollo": "An interactive browser-based jump-and-run game featuring character animations, enemy AI, collision detection, and scoring system.",
+      "join": "A Kanban-based project management tool with task management, user assignment, and clear status views."
+    }
+  },
+  "contact": {
+    "title": "Say Hi!",
+    "projectTitle": "Want to discuss a new project?",
+    "subtitle": "Say hello! let's discuss your ideas and make it happen",
+    "placeholder": {
+      "name": "Your name",
+      "email": "Your email",
+      "message": "Your message"
+    },
+    "button": "Send message",
+    "sending": "Sending...",
+    "privacy": {
+      "accept": "I've read the and agree to the processing of my data as outlined.",
+      "policy": "privacy policy"
+    },
+    "error": {
+      "name": "Please enter your name",
+      "email": "Please enter a valid email address",
+      "message": "Please enter a message",
+      "submit": "Your message could not be sent. Please try again."
+    },
+    "success": "Thank you for your message! I'll get back to you soon."
+  },
+  "footer": {
+    "copyright": "© 2026 Naiba Radshabov. All rights reserved.",
+    "legal": "Legal Notice",
+    "backToTop": "Back to top",
+    "github": "GitHub",
+    "email": "Email",
+    "linkedin": "LinkedIn"
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "placeholder": "[Privacy Policy to be added]"
+  }
+}

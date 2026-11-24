@@ -1,24 +1,25 @@
 import { Component, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { LanguageService } from '../../services/language.service';
+import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, TranslatePipe],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.scss'
 })
 export class ContactComponent {
   submitButtonText = 'Send message';
+  isSubmitting = false;
   submitSuccess = false;
   submitError = false;
   contactForm: FormGroup;
 
   constructor(
     private fb: FormBuilder,
-    private languageService: LanguageService,
+    private translate: TranslateService,
     private changeDetectorRef: ChangeDetectorRef
   ) {
     this.contactForm = this.fb.group({
@@ -29,15 +30,13 @@ export class ContactComponent {
       website: ['']
     });
 
-    this.submitButtonText = this.translate('contact.button');
-    this.languageService.currentLanguage$.subscribe(() => {
-      this.submitButtonText = this.translate('contact.button');
+    this.submitButtonText = this.translate.instant('contact.button');
+    this.translate.onLangChange.subscribe(() => {
+      this.submitButtonText = this.isSubmitting
+        ? this.translate.instant('contact.sending')
+        : this.translate.instant('contact.button');
       this.changeDetectorRef.markForCheck();
     });
-  }
-
-  translate(key: string): string {
-    return this.languageService.translate(key);
   }
 
   markAsTouched(fieldName: string): void {
@@ -52,7 +51,8 @@ export class ContactComponent {
       return;
     }
 
-    this.submitButtonText = this.translate('contact.sending');
+    this.isSubmitting = true;
+    this.submitButtonText = this.translate.instant('contact.sending');
     const payload = {
       name: this.contactForm.value.name,
       email: this.contactForm.value.email,
@@ -85,7 +85,8 @@ export class ContactComponent {
         this.submitError = true;
       })
       .finally(() => {
-        this.submitButtonText = this.translate('contact.button');
+        this.isSubmitting = false;
+        this.submitButtonText = this.translate.instant('contact.button');
         this.changeDetectorRef.markForCheck();
         setTimeout(() => {
           this.submitSuccess = false;

@@ -1,18 +1,12 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LanguageService } from '../../services/language.service';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-privacy',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslatePipe],
   templateUrl: './privacy.component.html',
   styleUrl: './privacy.component.scss'
 })
-export class PrivacyComponent {
-  constructor(private languageService: LanguageService) {}
-
-  translate(key: string): string {
-    return this.languageService.translate(key);
-  }
-}
+export class PrivacyComponent {}

@@ -1,28 +1,28 @@
 <section class="about">
   <div class="about-container">
-    <h2 class="about-title">{{ translate('about.title') }}</h2>
+    <h2 class="about-title">{{ 'about.title' | translate }}</h2>
 
     <div class="about-content">
       <div class="about-text">
         <p class="about-intro">
-          {{ translate('about.intro') }}
+          {{ 'about.intro' | translate }}
         </p>
 
         <p class="about-details">
-          {{ translate('about.details') }}
+          {{ 'about.details' | translate }}
         </p>
 
         <div class="about-info">
           <p class="about-info-item">
             <img src="/icons/location.svg" alt="" aria-hidden="true">
-            <span><strong>{{ translate('about.location') }}</strong> {{ translate('about.location.value') }}</span>
+            <span><strong>{{ 'about.location' | translate }}</strong> {{ 'about.locationValue' | translate }}</span>
           </p>
           <p class="about-info-item">
             <img src="/icons/remote.svg" alt="" aria-hidden="true">
-            <span><strong>{{ translate('about.status') }}</strong> {{ translate('about.status.value') }}</span>
+            <span><strong>{{ 'about.status' | translate }}</strong> {{ 'about.statusValue' | translate }}</span>
           </p>
         </div>
-        <button type="button" class="about-talk" (click)="scrollToContact()">{{ translate('about.talk') }}</button>
+        <button type="button" class="about-talk" (click)="scrollToContact()">{{ 'about.talk' | translate }}</button>
       </div>
 
       <div class="about-image-frame">

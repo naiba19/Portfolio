@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LanguageService } from '../../services/language.service';
+import { TranslatePipe } from '@ngx-translate/core';
 
 interface Skill {
   icon: string;
@@ -11,7 +11,7 @@ interface Skill {
 @Component({
   selector: 'app-skills',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslatePipe],
   templateUrl: './skills.component.html',
   styleUrl: './skills.component.scss'
 })
@@ -29,9 +29,4 @@ export class SkillsComponent {
     { icon: '/skills/rest-api.svg', label: 'REST API', category: 'backend' },
   ];
 
-  constructor(private languageService: LanguageService) {}
-
-  translate(key: string): string {
-    return this.languageService.translate(key);
-  }
 }
