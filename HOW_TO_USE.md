@@ -145,8 +145,8 @@ Edit the global styles:
 Change CSS variables in the `:root` section:
 ```scss
 :root {
-  --color-primary: #1FC5B5;         /* Main teal color */
-  --color-primary-dark: #1a9e91;    /* Darker teal */
+  --color-primary: #4B47FF;         /* Main accent color */
+  --color-primary-dark: #4B47FF;    /* Accent alias */
   --color-background: #FFFAF6;      /* Cream background */
   --color-surface: #F5F0EB;         /* Light gray surface */
   --color-text: #1a1a1a;            /* Dark text */
