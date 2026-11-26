@@ -18,4 +18,8 @@ export class AboutComponent {
   scrollToContact(): void {
     this.scrollService.scrollToSection('contact');
   }
+
+  scrollToSkills(): void {
+    this.scrollService.scrollToSection('skills');
+  }
 }

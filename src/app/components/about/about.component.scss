@@ -2,7 +2,7 @@
       background-color: var(--color-background);
       background-image: radial-gradient(circle, rgba(240, 219, 199, 0.45) 0.75px, transparent 1px);
       background-size: 64px 64px;
-      padding: 96px 100px;
+      padding: 96px 100px 0;
       min-height: auto;
     }
 
@@ -45,7 +45,7 @@
 
     .about-content {
       display: grid;
-      grid-template-columns: 50% 40%;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 533px);
       justify-content: space-between;
       gap: 10%;
       align-items: center;
@@ -128,17 +128,17 @@
     .about-image-frame::after {
       content: '';
       position: absolute;
-      width: 380px;
+      width: 533px;
       max-width: 100%;
-      height: 380px;
+      aspect-ratio: 1;
       top: 12px;
-      left: calc(100% - 380px + 12px);
+      right: -12px;
       border: 4px solid var(--color-text);
       opacity: 0;
       pointer-events: none;
       z-index: 0;
       box-shadow: 8px 12px 0 rgba(0, 0, 0, 0.12);
-      transition: opacity 180ms ease-out, top 180ms ease-out, left 180ms ease-out;
+      transition: opacity 180ms ease-out, top 180ms ease-out, right 180ms ease-out;
     }
 
     .about-image-frame:hover::after,
@@ -148,9 +148,9 @@
 
 
     .image-placeholder {
-      width: 380px;
+      width: 533px;
       max-width: 100%;
-      height: 380px;
+      aspect-ratio: 1;
       overflow: hidden;
       display: flex;
       align-items: center;
@@ -177,6 +177,24 @@
       content: none;
     }
 
+    .about-skills-arrow {
+      display: block;
+      width: 160x;
+      height: 260px;
+      margin: 20px 0 0 auto;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .about-skills-arrow img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
     @media (prefers-reduced-motion: reduce) {
       .about-title {
         animation: none;
@@ -185,7 +203,7 @@
 
     @media (max-width: 1024px) {
       .about {
-        padding: 80px 48px;
+        padding: 80px 48px 0;
       }
 
       .about-title {
@@ -193,13 +211,14 @@
       }
 
       .about-content {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
         gap: 32px;
       }
     }
 
     @media (max-width: 768px) {
       .about {
-        padding: var(--space-2xl) var(--space-md);
+        padding: var(--space-2xl) var(--space-md) 0;
       }
 
       .about-title {
@@ -210,7 +229,7 @@
       }
 
       .about-content {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
         gap: var(--space-2xl);
       }
 
@@ -219,8 +238,4 @@
         font-size: var(--font-size-md);
       }
 
-      .image-placeholder {
-        aspect-ratio: auto;
-        height: 400px;
-      }
     }

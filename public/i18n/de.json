@@ -28,18 +28,20 @@
   },
   "about": {
     "title": "Über mich",
-    "intro": "Ich entwickle browserbasierte Anwendungen mit JavaScript und Angular. Bei der Pokédex-App habe ich die Herausforderung gelöst, große Mengen von API-Daten übersichtlich, schnell und responsiv darzustellen.",
-    "details": "Ich habe die Pokémon-Daten über die PokéAPI geladen, Filter- und Caching-Logik umgesetzt und die Benutzeroberfläche mobil optimiert. Das Ergebnis ist eine responsive Anwendung, mit der sich Pokémon effizient suchen und erkunden lassen.",
+    "intro": "Ich bin Naiba und befinde mich im Übergang zur Softwareentwicklung. Derzeit baue ich meinen Weg in die Full-Stack-Entwicklung auf. Ich habe meine Leidenschaft für das Programmieren durch die Erstellung von Projekten und die Lösung von Problemen entdeckt.",
+    "details": "Für mich geht es bei der Entwicklung um mehr als nur das Schreiben von Code – es geht darum, Ideen in etwas umzuwandeln, das Menschen tatsächlich nutzen können.",
     "location": "Standort:",
     "locationValue": "Hagen, Deutschland",
     "status": "Status:",
     "statusValue": "Offen für Remote-Arbeit und Zusammenarbeit",
-    "talk": "Lass uns sprechen"
+    "talk": "Lass uns sprechen",
+    "scrollToSkills": "Zum Abschnitt Meine Fähigkeiten scrollen"
   },
   "skills": {
     "title": "Meine Fähigkeiten",
     "message": "Fehlende Fähigkeit? Ich lerne gerne neue Technologien!",
-    "contact": "Kontaktiere mich"
+    "contact": "Kontaktiere mich",
+    "scrollToPortfolio": "Zum Portfolio scrollen"
   },
   "portfolio": {
     "title": "Portfolio",
@@ -48,7 +50,7 @@
     "projectAria": "-Projekt",
     "projects": {
       "pokedex": "Eine Pokédex-Anwendung mit PokéAPI-Integration, dynamisches Laden von Pokémon-Daten, Filterfunktionen und responsive Design.",
-      "pollo": "Ein interaktives Browser-basiertes Jump-and-Run-Spiel mit Charakteranimationen, Gegner-KI, Kollisionserkennung und Punktesystem.",
+      "pollo": "Ein klassisches Jump-and-Run-Spiel, in dem Pepe die Welt erkundet, über Hindernisse springt und gegen Gegner kämpft, um sein Ziel zu erreichen.",
       "join": "Ein Kanban-gestütztes Projektmanagement-Tool mit Aufgabenverwaltung, Benutzerzuweisung und übersichtlichen Statusansichten."
     }
   },

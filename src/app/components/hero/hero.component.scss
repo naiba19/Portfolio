@@ -1,5 +1,5 @@
 .hero {
-      min-height: calc(100vh - 80px);
+      min-height: max(820px, calc(100vh - 80px));
       display: grid;
       grid-template-columns: 80px minmax(0, 1fr) 80px;
       gap: 1rem;
@@ -15,13 +15,11 @@
     }
 
     .hero-email-left {
+      position: absolute;
+      left: max(2rem, calc((100% - 1240px) / 2));
+      bottom: 3.5rem;
       display: flex;
       align-items: center;
-      justify-content: center;
-      height: 180px;
-      align-self: center;
-      width: 80px;
-      transform: translateY(7rem);
     }
 
     .email-text {
@@ -29,7 +27,7 @@
       text-orientation: mixed;
       transform: rotate(180deg);
       font-family: var(--font-family-body);
-      font-size: 14px;
+      font-size: 22px;
       font-weight: 500;
       color: var(--color-text);
       letter-spacing: 0.05em;
@@ -39,24 +37,28 @@
     }
 
     .hero-center {
+      grid-column: 2;
+      grid-row: 1;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      align-items: flex-start;
+      align-items: center;
       gap: 1.5rem;
-      text-align: left;
+      text-align: center;
       width: 100%;
       max-width: 100%;
       transform: translateY(-4.5rem);
     }
 
     .hero-heading-wrapper {
+      display: flex;
+      justify-content: center;
       width: 100%;
     }
 
     .hero-heading {
       font-family: var(--font-family-heading);
-      font-size: clamp(4rem, 6.1vw, 6rem);
+      font-size: 128px;
       font-weight: 800;
       line-height: 0.9;
       letter-spacing: -0.045em;
@@ -72,20 +74,23 @@
     .hero-name-section {
       display: flex;
       align-items: center;
+      justify-content: center;
       gap: 1.25rem;
-      width: 100%;
+      width: max-content;
+      max-width: 100%;
     }
 
     .hero-divider {
-      width: clamp(320px, 58%, 480px);
+      width: 673px;
       height: 3px;
       object-fit: contain;
-      flex-shrink: 0;
+      min-width: 0;
+      flex-shrink: 1;
     }
 
     .hero-name {
       font-family: var(--font-family-body);
-      font-size: clamp(2rem, 3.2vw, 3rem);
+      font-size: 48px;
       font-weight: 700;
       color: var(--color-primary);
       white-space: nowrap;
@@ -94,35 +99,37 @@
     }
 
     .hero-scroll-btn {
+      position: absolute;
+      right: max(2rem, calc((100% - 1240px) / 2));
+      bottom: 3.5rem;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 0.5rem;
+      gap: 10px;
       background: transparent;
       border: none;
       cursor: pointer;
-      padding: 0;
-      width: 100px;
-      align-self: center;
-      transform: translateY(7rem);
+      padding: 10px;
+      width: 136px;
     }
 
     .down-arrow {
-      width: 96px;
-      height: 160px;
+      width: 116px;
+      height: 180px;
       animation: arrow-flow 2.2s cubic-bezier(0.37, 0, 0.63, 1) infinite;
       will-change: transform;
     }
 
     .scroll-text {
       font-family: var(--font-family-body);
-      font-size: var(--font-size-sm);
+      font-size: 22px;
       font-weight: 400;
       color: var(--color-text);
       line-height: 1.4;
       margin: 0;
-      white-space: nowrap;
+      width: min-content;
+      text-align: center;
     }
 
     @keyframes arrow-flow {
@@ -145,14 +152,6 @@
         max-width: 760px;
       }
 
-      .hero-name-section {
-        width: 760px;
-      }
-
-      .hero-scroll-btn {
-        width: 120px;
-        margin-left: 1.5rem;
-      }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -161,27 +160,24 @@
       }
     }
 
+    @media (min-width: 1241px) {
+      .hero-name-section {
+        max-width: none;
+      }
+    }
+
     @media (max-width: 1024px) {
       .hero {
-        grid-template-columns: 60px minmax(0, 1fr) 80px;
+        grid-template-columns: 80px minmax(0, 1fr) 80px;
         gap: var(--space-2xl);
         min-height: 90vh;
         padding-inline: var(--space-lg);
       }
 
-      .hero-email-left {
-        width: 60px;
-        height: 180px;
-      }
-
-      .hero-scroll-btn {
-        width: 80px;
-      }
-
       .hero-center {
         justify-content: center;
-        align-items: flex-start;
-        text-align: left;
+        align-items: center;
+        text-align: center;
         width: 100%;
         transform: translateY(-1rem);
       }
@@ -195,7 +191,7 @@
       }
 
       .hero-name-section {
-        justify-content: flex-start;
+        justify-content: center;
         gap: 1.25rem;
       }
 
@@ -208,31 +204,25 @@
       .hero {
         grid-template-columns: 1fr;
         gap: 1.5rem;
-        min-height: 80vh;
+        min-height: max(80vh, 720px);
         padding: var(--space-xl) var(--space-md);
         align-content: center;
       }
 
       .hero-center {
-        transform: none;
+        grid-column: 1;
+        transform: translateY(-40px);
       }
 
       .hero-email-left {
-        position: absolute;
         left: 1rem;
         bottom: 2rem;
-        width: auto;
-        min-height: 0;
-        height: auto;
         opacity: 0.85;
       }
 
       .hero-scroll-btn {
-        position: absolute;
         right: 1.25rem;
         bottom: 2rem;
-        width: auto;
-        transform: none;
       }
 
       .hero-heading {
@@ -255,8 +245,4 @@
         height: 3px;
       }
 
-      .down-arrow {
-        width: 72px;
-        height: 120px;
-      }
     }

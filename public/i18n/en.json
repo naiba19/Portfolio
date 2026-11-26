@@ -28,18 +28,20 @@
   },
   "about": {
     "title": "About me",
-    "intro": "I build browser-based applications with JavaScript and Angular. For the Pokédex project, I solved the challenge of presenting large amounts of API data in a fast, clear, and responsive interface.",
-    "details": "I fetched Pokémon data through the PokéAPI, implemented filtering and caching, and adapted the interface for mobile devices. The result is a responsive application that makes it easy to search and explore Pokémon.",
+    "intro": "I'm Naiba, transitioning into software development and currently building my way into Full Stack Development. I discovered my passion for coding through creating projects and solving problems along the way.",
+    "details": "For me, development is about more than writing code — it's about turning ideas into something people can actually use.",
     "location": "Location:",
     "locationValue": "Hagen, Germany",
     "status": "Status:",
     "statusValue": "Open to remote work and collaboration",
-    "talk": "Let's talk"
+    "talk": "Let's talk",
+    "scrollToSkills": "Scroll to My skills section"
   },
   "skills": {
-    "title": "My Skills",
+    "title": "My skills",
     "message": "Don't see the skill you need? I'm always ready to learn!",
-    "contact": "Contact me"
+    "contact": "Contact me",
+    "scrollToPortfolio": "Scroll to Portfolio section"
   },
   "portfolio": {
     "title": "Portfolio",
@@ -48,7 +50,7 @@
     "projectAria": " project",
     "projects": {
       "pokedex": "A Pokédex application with PokéAPI integration, dynamic loading of Pokémon data, filtering features, and responsive design.",
-      "pollo": "An interactive browser-based jump-and-run game featuring character animations, enemy AI, collision detection, and scoring system.",
+      "pollo": "A classic jump-and-run game where Pepe explores the world, jumps over obstacles, and fights enemies to reach his goal.",
       "join": "A Kanban-based project management tool with task management, user assignment, and clear status views."
     }
   },
