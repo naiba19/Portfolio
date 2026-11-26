@@ -65,7 +65,7 @@ export class ContactComponent {
       window.location.hostname === '127.0.0.1';
     const contactEndpoint = isLocalDevelopment
       ? 'http://localhost:8000/contact.php'
-      : '/contact.php';
+      : './contact.php';
 
     fetch(contactEndpoint, {
       method: 'POST',

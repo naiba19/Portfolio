@@ -36,6 +36,16 @@ ng build
 
 This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
 
+## Static hosting deployment
+
+Upload the contents of `dist/naiba-portfolio/browser/` to the desired folder on the
+web server (for example, `public_html/Portfolio/`). Do not upload the Angular
+source folder or the `dist/naiba-portfolio/` parent folder.
+
+The production build uses relative asset URLs and hash-based routes, so it works
+without server-side URL rewrites. The deployed folder must also contain
+`contact.php` alongside `index.html`.
+
 ## Running unit tests
 
 To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
