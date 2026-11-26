@@ -26,7 +26,7 @@ export class PortfolioComponent {
       name: 'Pokédex',
       descriptionKey: 'portfolio.projects.pokedex',
       technologies: ['JavaScript', 'HTML', 'CSS', 'PokéAPI'],
-      image: '/projects/pokedex.png',
+      image: './projects/pokedex.png',
       github: 'https://github.com/naiba19/Pokedex',
       demo: 'https://naibaradshabov.developerakademie.net/Pokedex/index.html'
     },
@@ -35,7 +35,7 @@ export class PortfolioComponent {
       name: 'El Pollo Loco',
       descriptionKey: 'portfolio.projects.pollo',
       technologies: ['JavaScript', 'HTML', 'CSS', 'Object-Oriented Programming'],
-      image: '/projects/el_pollo_loco.png',
+      image: './projects/el_pollo_loco.png',
       github: 'https://github.com/naiba19/El_Pollo_Loco',
       demo: 'https://naibaradshabov.developerakademie.net/El_Pollo_Loco/El_Pollo_Loco/index.html'
     },
@@ -44,7 +44,7 @@ export class PortfolioComponent {
       name: 'Join',
       descriptionKey: 'portfolio.projects.join',
       technologies: ['JavaScript', 'HTML', 'CSS', 'Firebase'],
-      image: '/projects/join.png',
+      image: './projects/join.png',
       github: 'https://github.com/naiba19/Join',
       demo: ''
     }

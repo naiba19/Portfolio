@@ -1,0 +1,92 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "skills": "Skills",
+    "portfolio": "Portfolio",
+    "contact": "Contact"
+  },
+  "header": {
+    "logo": "Home",
+    "switchEnglish": "Switch to English",
+    "switchGerman": "Switch to Deutsch",
+    "openMenu": "Open navigation menu",
+    "closeMenu": "Close navigation menu",
+    "navigation": "Main navigation",
+    "socialLinks": "Social links",
+    "sayHi": "Say Hi!",
+    "github": "GitHub",
+    "email": "Email",
+    "linkedin": "LinkedIn"
+  },
+  "hero": {
+    "titleFull": "Full Stack",
+    "titleDeveloper": "Developer",
+    "name": "Naiba Radshabov",
+    "scroll": "Scroll Down",
+    "scrollAria": "Scroll to About section"
+  },
+  "about": {
+    "title": "About me",
+    "intro": "I'm Naiba, transitioning into software development and currently building my way into Full Stack Development. I discovered my passion for coding through creating projects and solving problems along the way.",
+    "details": "For me, development is about more than writing code — it's about turning ideas into something people can actually use.",
+    "location": "Location:",
+    "locationValue": "Hagen, Germany",
+    "status": "Status:",
+    "statusValue": "Open to remote work and collaboration",
+    "talk": "Let's talk",
+    "scrollToSkills": "Scroll to My skills section"
+  },
+  "skills": {
+    "title": "My skills",
+    "message": "Don't see the skill you need? I'm always ready to learn!",
+    "contact": "Contact me",
+    "scrollToPortfolio": "Scroll to Portfolio section"
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "intro": "Explore a selection of my work here - interact with projects to see my skills in action.",
+    "liveDemo": "Live demo",
+    "projectAria": " project",
+    "projects": {
+      "pokedex": "A Pokédex application with PokéAPI integration, dynamic loading of Pokémon data, filtering features, and responsive design.",
+      "pollo": "A classic jump-and-run game where Pepe explores the world, jumps over obstacles, and fights enemies to reach his goal.",
+      "join": "A Kanban-based project management tool with task management, user assignment, and clear status views."
+    }
+  },
+  "contact": {
+    "title": "Say Hi!",
+    "projectTitle": "Want to discuss a new project?",
+    "subtitle": "Say hello! let's discuss your ideas and make it happen",
+    "placeholder": {
+      "name": "Your name",
+      "email": "Your email",
+      "message": "Your message"
+    },
+    "button": "Send message",
+    "sending": "Sending...",
+    "privacy": {
+      "accept": "I've read the and agree to the processing of my data as outlined.",
+      "policy": "privacy policy"
+    },
+    "error": {
+      "name": "Please enter your name",
+      "email": "Please enter a valid email address",
+      "message": "Please enter a message",
+      "submit": "Your message could not be sent. Please try again."
+    },
+    "success": "Thank you for your message! I'll get back to you soon."
+  },
+  "footer": {
+    "copyright": "© 2026 Naiba Radshabov. All rights reserved.",
+    "legal": "Legal Notice",
+    "backToTop": "Back to top",
+    "github": "GitHub",
+    "email": "Email",
+    "linkedin": "LinkedIn"
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "placeholder": "[Privacy Policy to be added]"
+  }
+}

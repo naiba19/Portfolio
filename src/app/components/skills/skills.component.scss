@@ -93,7 +93,7 @@
   opacity: 1;
 }
 
-.skill-icon[src="/skills/supabase.svg"] {
+.skill-icon[src="./skills/supabase.svg"] {
   filter: brightness(0);
 }
 
@@ -102,7 +102,7 @@
   object-position: center top;
 }
 
-.skill-icon-wrap.animating .skill-icon[src="/skills/material-design-icon.svg"] {
+.skill-icon-wrap.animating .skill-icon[src="./skills/material-design-icon.svg"] {
   filter: invert(24%) sepia(92%) saturate(4155%) hue-rotate(239deg) brightness(93%) contrast(100%);
 }
 

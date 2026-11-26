@@ -1,0 +1,92 @@
+{
+  "nav": {
+    "home": "Startseite",
+    "about": "Über mich",
+    "skills": "Fähigkeiten",
+    "portfolio": "Portfolio",
+    "contact": "Kontakt"
+  },
+  "header": {
+    "logo": "Startseite",
+    "switchEnglish": "Zu Englisch wechseln",
+    "switchGerman": "Zu Deutsch wechseln",
+    "openMenu": "Navigationsmenü öffnen",
+    "closeMenu": "Navigationsmenü schließen",
+    "navigation": "Hauptnavigation",
+    "socialLinks": "Social-Media-Links",
+    "sayHi": "Sag Hallo!",
+    "github": "GitHub",
+    "email": "E-Mail",
+    "linkedin": "LinkedIn"
+  },
+  "hero": {
+    "titleFull": "Full Stack",
+    "titleDeveloper": "Developer",
+    "name": "Naiba Radshabov",
+    "scroll": "Nach unten",
+    "scrollAria": "Zum Abschnitt Über mich scrollen"
+  },
+  "about": {
+    "title": "Über mich",
+    "intro": "Ich bin Naiba und befinde mich im Übergang zur Softwareentwicklung. Derzeit baue ich meinen Weg in die Full-Stack-Entwicklung auf. Ich habe meine Leidenschaft für das Programmieren durch die Erstellung von Projekten und die Lösung von Problemen entdeckt.",
+    "details": "Für mich geht es bei der Entwicklung um mehr als nur das Schreiben von Code – es geht darum, Ideen in etwas umzuwandeln, das Menschen tatsächlich nutzen können.",
+    "location": "Standort:",
+    "locationValue": "Hagen, Deutschland",
+    "status": "Status:",
+    "statusValue": "Offen für Remote-Arbeit und Zusammenarbeit",
+    "talk": "Lass uns sprechen",
+    "scrollToSkills": "Zum Abschnitt Meine Fähigkeiten scrollen"
+  },
+  "skills": {
+    "title": "Meine Fähigkeiten",
+    "message": "Fehlende Fähigkeit? Ich lerne gerne neue Technologien!",
+    "contact": "Kontaktiere mich",
+    "scrollToPortfolio": "Zum Portfolio scrollen"
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "intro": "Erkunden Sie eine Auswahl meiner Arbeiten - interagieren Sie mit Projekten, um meine Fähigkeiten in Aktion zu sehen.",
+    "liveDemo": "Live-Demo",
+    "projectAria": "-Projekt",
+    "projects": {
+      "pokedex": "Eine Pokédex-Anwendung mit PokéAPI-Integration, dynamisches Laden von Pokémon-Daten, Filterfunktionen und responsive Design.",
+      "pollo": "Ein klassisches Jump-and-Run-Spiel, in dem Pepe die Welt erkundet, über Hindernisse springt und gegen Gegner kämpft, um sein Ziel zu erreichen.",
+      "join": "Ein Kanban-gestütztes Projektmanagement-Tool mit Aufgabenverwaltung, Benutzerzuweisung und übersichtlichen Statusansichten."
+    }
+  },
+  "contact": {
+    "title": "Sag Hallo!",
+    "projectTitle": "Möchtest du ein neues Projekt besprechen?",
+    "subtitle": "Lass uns über deine Ideen sprechen und sie Wirklichkeit werden lassen",
+    "placeholder": {
+      "name": "Dein Name",
+      "email": "Deine E-Mail",
+      "message": "Deine Nachricht"
+    },
+    "button": "Nachricht senden",
+    "sending": "Wird gesendet...",
+    "privacy": {
+      "accept": "Ich habe die gelesen und akzeptiere die Verarbeitung meiner Daten wie beschrieben.",
+      "policy": "Datenschutzrichtlinie"
+    },
+    "error": {
+      "name": "Bitte gib deinen Namen ein",
+      "email": "Bitte gib eine gültige E-Mail-Adresse ein",
+      "message": "Bitte gib eine Nachricht ein",
+      "submit": "Nachricht konnte nicht gesendet werden. Bitte versuche es erneut."
+    },
+    "success": "Danke für deine Nachricht! Ich werde mich bald bei dir melden."
+  },
+  "footer": {
+    "copyright": "© 2026 Naiba Radshabov. Alle Rechte vorbehalten.",
+    "legal": "Rechtliche Hinweise",
+    "backToTop": "Zurück nach oben",
+    "github": "GitHub",
+    "email": "E-Mail",
+    "linkedin": "LinkedIn"
+  },
+  "privacy": {
+    "title": "Datenschutzerklärung",
+    "placeholder": "[Datenschutzerklärung wird ergänzt]"
+  }
+}
