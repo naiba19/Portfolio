@@ -46,6 +46,11 @@ The production build uses relative asset URLs and hash-based routes, so it works
 without server-side URL rewrites. The deployed folder must also contain
 `contact.php` alongside `index.html`.
 
+Before uploading a new build, remove the previous contents from the server folder
+and replace them with the complete contents of `dist/naiba-portfolio/browser/`.
+Keep the server folder itself (for example, `public_html/Portfolio/`) and do not
+create an additional `browser/` folder inside it.
+
 ## Running unit tests
 
 To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
